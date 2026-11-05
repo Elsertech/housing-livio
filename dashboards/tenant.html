@@ -43,26 +43,26 @@
         </section>
 
         <section class="stats">
-            <div class="stat-card">
-                <h3>0</h3>
-                <p>Active Applications</p>
-            </div>
+    <div class="stat-card">
+        <h3 id="active-applications">0</h3>
+        <p>Active Applications</p>
+    </div>
 
-            <div class="stat-card">
-                <h3>0</h3>
-                <p>Upcoming Viewings</p>
-            </div>
+    <div class="stat-card">
+        <h3 id="upcoming-viewings">0</h3>
+        <p>Upcoming Viewings</p>
+    </div>
 
-            <div class="stat-card">
-                <h3>0</h3>
-                <p>Maintenance Requests</p>
-            </div>
+    <div class="stat-card">
+        <h3 id="maintenance-requests">0</h3>
+        <p>Open Maintenance Requests</p>
+    </div>
 
-            <div class="stat-card">
-                <h3>0</h3>
-                <p>Active Tenancies</p>
-            </div>
-        </section>
+    <div class="stat-card">
+        <h3 id="active-tenancies">0</h3>
+        <p>Active Tenancies</p>
+    </div>
+</section>
 
         <section class="dashboard-content">
             <h2>Quick Actions</h2>
@@ -74,7 +74,20 @@
                 <a href="../tenant/tenancy.html">View Tenancy Records</a>
             </div>
         </section>
+<section class="dashboard-content">
+    <h2>Recent Activity</h2>
 
+    <div id="recent-activity">
+
+        <div class="activity-item">
+            <div>
+                <h4>Loading activity...</h4>
+                <p>Your latest housing updates will appear here.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
     </main>
 
     <script type="module" src="../js/tenant-dashboard.js"></script>
