@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Livio Residences</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <i class="fas fa-home"></i>
+            <span>Livio Residences</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <button class="dropdown-toggle" aria-expanded="false">
+                    Properties
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="buy.html">Buy</a></li>
+                    <li><a href="rent.html">Rent</a></li>
+                    <li><a href="sell.html">Sell</a></li>
+                    <li><a href="commercial.html">Commercial</a></li>
+                </ul>
+            </li>
+            <li><a href="agents.html">Find an Agent</a></li>
+            <li><a href="advertise.html">Advertise</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="register.html" class="start-btn">Get Started</a>
+        </div>
+
+        <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </nav>
+
+    <section class="hero">
+        <h1>Find a place to call home.</h1>
+        <p class="hero-sub">Buy, rent, sell and manage property, all in one place.</p>
+        <div class="hero-buttons">
+            <a href="properties.html" class="btn btn-orange">Browse properties</a>
+            <a href="login.html" class="btn btn-outline">Property portal</a>
+        </div>
+        <form class="search-box" action="properties.html" method="get">
+            <input type="text" id="location" name="location" placeholder="Search a place, e.g. Kilimani">
+            <button type="submit">Search</button>
+        </form>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <span class="icon-box"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <h3>Find a Home</h3>
+            <p>Search by area and filter by price, bedrooms and type to buy or rent.</p>
+        </div>
+        <div class="feature">
+            <span class="icon-box"><i class="fa-solid fa-bullhorn"></i></span>
+            <h3>List Your Property</h3>
+            <p>Advertise to buyers and tenants with photos, details and a map location.</p>
+        </div>
+        <div class="feature">
+            <span class="icon-box"><i class="fa-solid fa-users"></i></span>
+            <h3>Manage Tenants</h3>
+            <p>Keep tenant details, leases and communication in one place.</p>
+        </div>
+        <div class="feature">
+            <span class="icon-box"><i class="fa-solid fa-credit-card"></i></span>
+            <h3>Collect Rent Online</h3>
+            <p>Automate reminders and accept payments via M-Pesa, bank or card.</p>
+        </div>
+        <div class="feature">
+            <span class="icon-box"><i class="fa-solid fa-wrench"></i></span>
+            <h3>Maintenance Requests</h3>
+            <p>Tenants report issues and you track progress in real time.</p>
+        </div>
+    </section>
+
+    <section class="how">
+        <div class="how-text">
+            <p class="eyebrow">How it works</p>
+            <h2>One Platform for Finding, Listing and Managing Property</h2>
+            <p>Whether you're looking for your next home or running a portfolio of rentals, Livio Residences keeps
+                everything in one place.</p>
+            <div class="how-cta">
+                <a href="properties.html" class="btn btn-orange">Browse properties</a>
+                <a href="register.html" class="btn btn-dark">Get Started Free <i
+                        class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <div class="how-right">
+            <div class="tabs">
+                <button class="tab active" data-tab="seekers">I'm looking for a home</button>
+                <button class="tab" data-tab="owners">I own property</button>
+            </div>
+
+            <div class="how-steps" id="seekers">
+                <div class="hstep">
+                    <div class="hstep-icon"><span class="badge-num">1</span><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <h3>Search an Area</h3>
+                    <p>Enter a neighbourhood and see every property listed there.</p>
+                </div>
+                <div class="hstep">
+                    <div class="hstep-icon"><span class="badge-num">2</span><i class="fa-solid fa-sliders"></i></div>
+                    <h3>Filter and Compare</h3>
+                    <p>Narrow by price, bedrooms and type, and check locations on the map.</p>
+                </div>
+                <div class="hstep">
+                    <div class="hstep-icon"><span class="badge-num">3</span><i class="fa-regular fa-calendar-check"></i>
+                    </div>
+                    <h3>Contact and View</h3>
+                    <p>Get in touch about a property and arrange a viewing.</p>
+                </div>
+                <div class="hstep">
+                    <div class="hstep-icon"><span class="badge-num">4</span><i class="fa-solid fa-key"></i></div>
+                    <h3>Move In</h3>
+                    <p>Sign your lease, then pay rent and report issues from one account.</p>
+                </div>
+            </div>
+
+            <div class="how-steps" id="owners" hidden>
+                <div class="hstep">
+                    <div class="hstep-icon"><span class="badge-num">1</span><i class="fa-solid fa-house"></i></div>
+                    <h3>List Your Property</h3>
+                    <p>Add units, set the price and upload details and photos.</p>
+                </div>
+                <div class="hstep">
+                    <div class="hstep-icon"><span class="badge-num">2</span><i class="fa-solid fa-bullhorn"></i></div>
+                    <h3>Reach Buyers and Tenants</h3>
+                    <p>Your listing appears in search results and on the map.</p>
+                </div>
+                <div class="hstep">
+                    <div class="hstep-icon"><span class="badge-num">3</span><i class="fa-regular fa-user"></i></div>
+                    <h3>Manage Tenants</h3>
+                    <p>Add tenant information and create or upload leases.</p>
+                </div>
+                <div class="hstep">
+                    <div class="hstep-icon"><span class="badge-num">4</span><i class="fa-solid fa-chart-simple"></i>
+                    </div>
+                    <h3>Track and Grow</h3>
+                    <p>Monitor payments and reports to make better decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured">
+        <div class="featured-intro">
+            <p class="eyebrow">Featured properties</p>
+            <h2>Find the Right Property</h2>
+        </div>
+
+        <div class="featured-main">
+            <a href="properties.html" class="view-all">View All Properties <i class="fa-solid fa-arrow-right"></i></a>
+            <div id="featured-list" class="cards"></div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo"><i class="fas fa-home"></i><span>Livio Residences</span></a>
+                <p>Buy, rent, sell and manage property, all in one place.</p>
+                <div class="social">
+                    <a href="https://instagram.com/yourpage" target="_blank" aria-label="Instagram"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://facebook.com/yourpage" target="_blank" aria-label="Facebook"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://tiktok.com/@yourpage" target="_blank" aria-label="TikTok"><i
+                            class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://youtube.com/@yourpage" target="_blank" aria-label="YouTube"><i
+                            class="fa-brands fa-youtube"></i></a>
+                    <a href="mailto:info@yourdomain.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Properties</h4>
+                <ul>
+                    <li><a href="buy.html">Buy</a></li>
+                    <li><a href="rent.html">Rent</a></li>
+                    <li><a href="sell.html">Sell</a></li>
+                    <li><a href="commercial.html">Commercial</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="agents.html">Find an Agent</a></li>
+                    <li><a href="advertise.html">Advertise</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Account</h4>
+                <ul>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Get Started</a></li>
+                    <li><a href="login.html">Property portal</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="copyright">&copy; 2026 Livio Residences. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
