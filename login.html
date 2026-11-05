@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | LIVIO Residences</title>
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+    <main class="auth-container">
+        <div class="auth-card">
+            <a href="index.html" class="logo">LIVIO<span>.</span></a>
+
+            <h1>Welcome back</h1>
+            <p>Sign in to access your LIVIO account.</p>
+
+            <form id="login-form">
+                <label for="email">Email address</label>
+                <input
+                    type="email"
+                    id="email"
+                    required
+                    placeholder="Enter your email"
+                >
+
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    required
+                    placeholder="Enter your password"
+                >
+
+                <button type="submit">Sign In</button>
+
+                <p id="auth-message" aria-live="polite"></p>
+            </form>
+
+            <p class="auth-switch">
+                Don't have an account?
+                <a href="register.html">Create account</a>
+            </p>
+
+            <p class="auth-switch">
+                <a href="index.html">Back to home</a>
+            </p>
+        </div>
+    </main>
+
+    <script type="module" src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenant Dashboard | LIVIO</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <h2 class="logo">LIVIO<span>.</span></h2>
+
+        <p class="menu-title">TENANT MENU</p>
+
+        <nav>
+            <a href="tenant.html" class="active">Dashboard</a>
+            <a href="../properties.html">Find a Home</a>
+            <a href="../tenant/bookings.html">My Viewings</a>
+            <a href="../tenant/applications.html">Applications</a>
+            <a href="../tenant/tenancy.html">My Tenancy</a>
+            <a href="../tenant/maintenance.html">Maintenance</a>
+            <a href="../tenant/relocation.html">Relocation</a>
+        </nav>
+
+        <button id="logout-btn">Sign Out</button>
+    </aside>
+
+    <main class="dashboard">
+        <header class="topbar">
+            <div>
+                <h1>Tenant Dashboard</h1>
+                <p>Manage your housing journey with LIVIO.</p>
+            </div>
+            <div id="user-name">Loading profile...</div>
+        </header>
+
+        <section class="welcome">
+            <h2>Welcome to LIVIO</h2>
+            <p>Find your next home and manage your tenancy in one place.</p>
+            <a href="../properties.html">Explore Properties</a>
+        </section>
+
+        <section class="stats">
+            <div class="stat-card">
+                <h3>0</h3>
+                <p>Active Applications</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>0</h3>
+                <p>Upcoming Viewings</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>0</h3>
+                <p>Maintenance Requests</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>0</h3>
+                <p>Active Tenancies</p>
+            </div>
+        </section>
+
+        <section class="dashboard-content">
+            <h2>Quick Actions</h2>
+
+            <div class="actions">
+                <a href="../properties.html">Find a Property</a>
+                <a href="../tenant/applications.html">Track Applications</a>
+                <a href="../tenant/maintenance.html">Report a Problem</a>
+                <a href="../tenant/tenancy.html">View Tenancy Records</a>
+            </div>
+        </section>
+
+    </main>
+
+    <script type="module" src="../js/tenant-dashboard.js"></script>
+</body>
+</html>
