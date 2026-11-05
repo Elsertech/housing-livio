@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>About Us | LIVIO Residences</title>
+
+    <meta name="description"
+        content="Discover LIVIO Residences, a housing and property management platform designed to make finding and managing homes easier, safer and more transparent.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/main.js" defer></script>
+
+    <style>
+        /* ABOUT PAGE */
+
+        .about-hero {
+            min-height: 470px;
+            padding: 110px 8%;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(90deg, rgba(5, 13, 27, .95), rgba(5, 13, 27, .55)),
+                url("assets/images/about-hero.jpg") center/cover no-repeat;
+            color: white;
+        }
+
+        .about-hero-content {
+            max-width: 750px;
+        }
+
+        .about-label {
+            color: #f59e0b;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+        }
+
+        .about-hero h1 {
+            font-family: "Bricolage Grotesque", sans-serif;
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1.08;
+            margin-bottom: 22px;
+        }
+
+        .about-hero h1 span {
+            color: #f59e0b;
+        }
+
+        .about-hero p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #d5dce8;
+            max-width: 610px;
+        }
+
+        .about-section {
+            padding: 95px 8%;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .about-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 65px;
+            align-items: center;
+        }
+
+        .about-heading {
+            font-family: "Bricolage Grotesque", sans-serif;
+            font-size: clamp(32px, 4vw, 48px);
+            line-height: 1.2;
+            margin-bottom: 22px;
+            color: #111827;
+        }
+
+        .about-description {
+            color: #626b7a;
+            line-height: 1.9;
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
+
+        .about-image {
+            min-height: 380px;
+            border-radius: 18px;
+            background:
+                linear-gradient(135deg, rgba(10, 25, 48, .12), rgba(10, 25, 48, .35)),
+                url("assets/images/about-team.jpg") center/cover no-repeat;
+        }
+
+        .about-highlight {
+            padding: 30px;
+            background: #f5f7fa;
+            border-left: 4px solid #f59e0b;
+            border-radius: 8px;
+            margin-top: 25px;
+        }
+
+        .about-highlight p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #263247;
+            font-weight: 600;
+        }
+
+        .about-dark {
+            background: #081323;
+            color: white;
+        }
+
+        .about-dark .about-heading {
+            color: white;
+        }
+
+        .about-dark .about-description {
+            color: #b8c2d1;
+        }
+
+        .section-intro {
+            max-width: 650px;
+            margin-bottom: 45px;
+        }
+
+        .section-intro .about-heading {
+            margin-bottom: 15px;
+        }
+
+        .about-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .about-card {
+            background: white;
+            padding: 35px 30px;
+            border: 1px solid #e8ebf0;
+            border-radius: 14px;
+            transition: transform .3s, box-shadow .3s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, .07);
+        }
+
+        .about-card-icon {
+            width: 53px;
+            height: 53px;
+            border-radius: 12px;
+            background: #fff3df;
+            color: #d97706;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 21px;
+            margin-bottom: 23px;
+        }
+
+        .about-card h3 {
+            font-family: "Bricolage Grotesque", sans-serif;
+            font-size: 21px;
+            color: #172033;
+            margin-bottom: 13px;
+        }
+
+        .about-card p {
+            color: #687386;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .about-values {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .value-item {
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            padding: 22px;
+            border-bottom: 1px solid rgba(255, 255, 255, .13);
+        }
+
+        .value-item i {
+            color: #f59e0b;
+            font-size: 22px;
+            margin-top: 4px;
+        }
+
+        .value-item h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .value-item p {
+            color: #b8c2d1;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .about-cta {
+            padding: 85px 8%;
+            text-align: center;
+            background: #f5f7fa;
+        }
+
+        .about-cta h2 {
+            font-family: "Bricolage Grotesque", sans-serif;
+            font-size: clamp(32px, 4vw, 46px);
+            color: #111827;
+            margin-bottom: 17px;
+        }
+
+        .about-cta p {
+            max-width: 600px;
+            margin: 0 auto 28px;
+            color: #687386;
+            line-height: 1.8;
+        }
+
+        .about-cta .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        @media (max-width: 850px) {
+            .about-intro {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .about-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .about-hero {
+                padding: 85px 6%;
+                min-height: 420px;
+            }
+
+            .about-section {
+                padding: 65px 6%;
+            }
+
+            .about-cards,
+            .about-values {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                min-height: 260px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            <i class="fas fa-home"></i>
+            <span>Livio Residences</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="properties.html">Properties</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html" class="active">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="register.html" class="start-btn">Get Started</a>
+        </div>
+
+        <button class="menu-toggle" aria-label="Open navigation menu"
+            aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+    </nav>
+
+
+    <!-- HERO SECTION -->
+    <section class="about-hero">
+
+        <div class="about-hero-content">
+
+            <div class="about-label">About LIVIO Residences</div>
+
+            <h1>
+                Housing should be
+                <span>simpler.</span>
+            </h1>
+
+            <p>
+                We are building a better way to find homes, connect tenants
+                with property owners, and manage residential properties.
+                LIVIO brings the housing experience into one connected platform.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- WHO WE ARE -->
+    <section class="about-section">
+
+        <div class="about-container about-intro">
+
+            <div>
+
+                <div class="about-label">Who We Are</div>
+
+                <h2 class="about-heading">
+                    More than finding a place to live.
+                </h2>
+
+                <p class="about-description">
+                    LIVIO Residences is a housing and property management
+                    platform designed to connect people with homes and
+                    simplify the relationship between tenants, landlords
+                    and property managers.
+                </p>
+
+                <p class="about-description">
+                    We recognise that finding a home can be stressful.
+                    Unclear property information, unreliable listings,
+                    poor communication and complicated property management
+                    can make the experience difficult.
+                </p>
+
+                <p class="about-description">
+                    Our goal is to bring these activities together through
+                    technology, transparency and organised property services.
+                </p>
+
+                <div class="about-highlight">
+                    <p>
+                        We believe that finding and managing a home should
+                        be an organised, transparent and reliable experience.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="about-image" role="img"
+                aria-label="Residential housing and modern homes">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MISSION AND VISION -->
+    <section class="about-section about-dark">
+
+        <div class="about-container about-intro">
+
+            <div>
+
+                <div class="about-label">Our Direction</div>
+
+                <h2 class="about-heading">
+                    Building around real housing needs.
+                </h2>
+
+                <p class="about-description">
+                    We want to make the housing journey easier for everyone
+                    involved, from the first property search to everyday
+                    property management.
+                </p>
+
+            </div>
+
+            <div>
+
+                <div class="value-item">
+                    <i class="fa-solid fa-bullseye"></i>
+                    <div>
+                        <h3>Our Mission</h3>
+                        <p>
+                            To simplify housing through accessible technology,
+                            trusted connections and efficient property services.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="value-item">
+                    <i class="fa-solid fa-eye"></i>
+                    <div>
+                        <h3>Our Vision</h3>
+                        <p>
+                            To build a trusted and connected housing ecosystem
+                            that improves how people find homes and how
+                            properties are managed.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- WHAT WE DO -->
+    <section class="about-section">
+
+        <div class="about-container">
+
+            <div class="section-intro">
+
+                <div class="about-label">What We Do</div>
+
+                <h2 class="about-heading">
+                    One platform. Multiple housing solutions.
+                </h2>
+
+                <p class="about-description">
+                    LIVIO is designed to support the different people
+                    and activities involved in residential housing.
+                </p>
+
+            </div>
+
+            <div class="about-cards">
+
+                <div class="about-card">
+                    <div class="about-card-icon">
+                        <i class="fa-solid fa-house"></i>
+                    </div>
+
+                    <h3>Find a Home</h3>
+
+                    <p>
+                        Explore available properties, compare options,
+                        request viewings and make informed housing decisions.
+                    </p>
+                </div>
+
+
+                <div class="about-card">
+                    <div class="about-card-icon">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+
+                    <h3>Property Management</h3>
+
+                    <p>
+                        Give property owners and managers tools to organise
+                        properties, vacancies, tenants and daily operations.
+                    </p>
+                </div>
+
+
+                <div class="about-card">
+                    <div class="about-card-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+
+                    <h3>Property Verification</h3>
+
+                    <p>
+                        Introduce a review process to check property information
+                        and supporting ownership or rental-authority documents
+                        before listings are published.
+                    </p>
+                </div>
+
+
+                <div class="about-card">
+                    <div class="about-card-icon">
+                        <i class="fa-solid fa-file-contract"></i>
+                    </div>
+
+                    <h3>Tenancy Management</h3>
+
+                    <p>
+                        Organise tenancy information, rental records,
+                        applications, agreements and communication.
+                    </p>
+                </div>
+
+
+                <div class="about-card">
+                    <div class="about-card-icon">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+
+                    <h3>Maintenance Coordination</h3>
+
+                    <p>
+                        Help tenants report property issues and allow
+                        landlords and managers to coordinate repairs.
+                    </p>
+                </div>
+
+
+                <div class="about-card">
+                    <div class="about-card-icon">
+                        <i class="fa-solid fa-truck-moving"></i>
+                    </div>
+
+                    <h3>Relocation Support</h3>
+
+                    <p>
+                        Connect people moving homes with relevant relocation
+                        and moving service providers.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- OUR VALUES -->
+    <section class="about-section about-dark">
+
+        <div class="about-container">
+
+            <div class="section-intro">
+
+                <div class="about-label">What Guides Us</div>
+
+                <h2 class="about-heading">
+                    The principles behind LIVIO.
+                </h2>
+
+                <p class="about-description">
+                    The foundation of our platform is not just technology.
+                    It is how that technology serves people.
+                </p>
+
+            </div>
+
+            <div class="about-values">
+
+                <div class="value-item">
+                    <i class="fa-solid fa-handshake"></i>
+                    <div>
+                        <h3>Trust</h3>
+                        <p>
+                            Encourage transparent interactions and
+                            responsible property information.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="value-item">
+                    <i class="fa-solid fa-users"></i>
+                    <div>
+                        <h3>People First</h3>
+                        <p>
+                            Design services around the actual needs
+                            of tenants, landlords and property managers.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="value-item">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <div>
+                        <h3>Innovation</h3>
+                        <p>
+                            Use practical technology to address real
+                            challenges in the housing sector.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="value-item">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                    <div>
+                        <h3>Transparency</h3>
+                        <p>
+                            Promote clear information, understandable
+                            processes and responsible service delivery.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- WHO WE SERVE -->
+    <section class="about-section">
+
+        <div class="about-container">
+
+            <div class="section-intro">
+
+                <div class="about-label">Who We Serve</div>
+
+                <h2 class="about-heading">
+                    Designed for everyone in the housing journey.
+                </h2>
+
+            </div>
+
+            <div class="about-cards">
+
+                <div class="about-card">
+                    <div class="about-card-icon">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+
+                    <h3>Tenants and Home Seekers</h3>
+
+                    <p>
+                        People looking for suitable homes, arranging viewings
+                        or managing their tenancy.
+                    </p>
+                </div>
+
+
+                <div class="about-card">
+                    <div class="about-card-icon">
+                        <i class="fa-solid fa-house-user"></i>
+                    </div>
+
+                    <h3>Landlords</h3>
+
+                    <p>
+                        Property owners looking for better ways to list
+                        and manage their rental properties.
+                    </p>
+                </div>
+
+
+                <div class="about-card">
+                    <div class="about-card-icon">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+
+                    <h3>Property Managers</h3>
+
+                    <p>
+                        Professionals responsible for coordinating
+                        property operations and tenant relationships.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CALL TO ACTION -->
+    <section class="about-cta">
+
+        <div class="about-container">
+
+            <div class="about-label">Be Part of the Journey</div>
+
+            <h2>A better housing experience starts here.</h2>
+
+            <p>
+                Whether you are searching for a home or managing property,
+                LIVIO is being built to make the process easier and more
+                organised.
+            </p>
+
+            <a href="register.html" class="btn btn-orange">
+                Get Started
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="logo">
+                    <i class="fas fa-home"></i>
+                    <span>Livio Residences</span>
+                </a>
+
+                <p>
+                    A better way to find homes and manage property.
+                </p>
+
+                <div class="social">
+                    <a href="#" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#" aria-label="TikTok">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+
+                    <a href="mailto:info@livio.co.ke" aria-label="Email">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="properties.html">Properties</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+
+            <div class="footer-col">
+                <h4>Property Services</h4>
+                <ul>
+                    <li><a href="properties.html">Find a Home</a></li>
+                    <li><a href="properties/add-property.html">List Property</a></li>
+                    <li><a href="services.html">Property Management</a></li>
+                    <li><a href="services.html">Relocation</a></li>
+                </ul>
+            </div>
+
+
+            <div class="footer-col">
+                <h4>Account</h4>
+                <ul>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <p class="copyright">
+            &copy; 2026 LIVIO Residences. All rights reserved.
+        </p>
+    </footer>
+</body>
+</html>
