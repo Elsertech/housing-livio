@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIVIO | Admin Control Centre</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- ADMIN SIDEBAR -->
+    <aside class="sidebar admin-sidebar">
+
+        <a href="../index.html" class="logo">
+            <i class="fas fa-house"></i> LIVIO
+        </a>
+
+        <p class="sidebar-label">ADMINISTRATION</p>
+
+        <nav class="sidebar-nav">
+
+            <a href="admin.html" class="active">
+                <i class="fas fa-chart-pie"></i> Overview
+            </a>
+
+            <p class="admin-nav-label">PLATFORM MANAGEMENT</p>
+
+            <a href="admin-users.html">
+                <i class="fas fa-users"></i> User Management
+            </a>
+
+            <a href="admin-agencies.html">
+                <i class="fas fa-building"></i> Agencies
+            </a>
+
+            <a href="admin-properties.html">
+                <i class="fas fa-house"></i> Properties & Units
+            </a>
+
+            <a href="admin-verification.html">
+                <i class="fas fa-shield-halved"></i> Verification Centre
+            </a>
+
+            <p class="admin-nav-label">HOUSING OPERATIONS</p>
+
+            <a href="admin-tenants.html">
+                <i class="fas fa-user-group"></i> Tenants
+            </a>
+
+            <a href="admin-applications.html">
+                <i class="fas fa-file-lines"></i> Applications
+            </a>
+
+            <a href="admin-tenancies.html">
+                <i class="fas fa-key"></i> Tenancies
+            </a>
+
+            <a href="admin-maintenance.html">
+                <i class="fas fa-screwdriver-wrench"></i> Maintenance
+            </a>
+
+            <p class="admin-nav-label">FINANCIAL MANAGEMENT</p>
+
+            <a href="admin-finance.html">
+                <i class="fas fa-wallet"></i> Payments & Finance
+            </a>
+
+            <a href="admin-billing.html">
+                <i class="fas fa-file-invoice"></i> Platform Billing
+            </a>
+
+            <p class="admin-nav-label">SYSTEM CONTROL</p>
+
+            <a href="admin-reports.html">
+                <i class="fas fa-chart-line"></i> Reports & Analytics
+            </a>
+
+            <a href="admin-audit.html">
+                <i class="fas fa-clock-rotate-left"></i> Audit Logs
+            </a>
+
+            <a href="admin-settings.html">
+                <i class="fas fa-gears"></i> System Settings
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="../index.html">
+                <i class="fas fa-globe"></i> Visit Website
+            </a>
+
+            <button id="logout-btn">
+                <i class="fas fa-right-from-bracket"></i> Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="dashboard admin-dashboard">
+
+        <!-- HEADER -->
+        <header class="dashboard-header">
+
+            <div>
+                <h1>Admin Control Centre</h1>
+                <p>Monitor and manage the entire LIVIO platform.</p>
+            </div>
+
+            <div class="admin-header-right">
+
+                <div class="admin-system-status">
+                    <span></span> System Control
+                </div>
+
+                <div class="header-user">
+
+                    <div class="user-avatar">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+
+                    <div>
+                        <strong id="user-name">Loading...</strong>
+                        <small>Administrator</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- WELCOME -->
+        <section class="admin-welcome">
+
+            <div>
+                <p class="welcome-label">LIVIO PLATFORM ADMINISTRATION</p>
+
+                <h2>Welcome, <span id="welcome-name">Administrator</span></h2>
+
+                <p>
+                    Your central workspace for managing housing operations,
+                    platform users, properties and verification activities.
+                </p>
+            </div>
+
+            <div class="admin-welcome-icon">
+                <i class="fas fa-shield-halved"></i>
+            </div>
+
+        </section>
+
+
+        <!-- KEY STATISTICS -->
+        <section class="admin-stats-grid">
+
+            <div class="admin-stat-card">
+                <div class="admin-stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <p>Total Users</p>
+                <h2 id="admin-total-users">—</h2>
+                <small>Registered platform accounts</small>
+            </div>
+
+            <div class="admin-stat-card">
+                <div class="admin-stat-icon">
+                    <i class="fas fa-house"></i>
+                </div>
+                <p>Total Properties</p>
+                <h2 id="admin-total-properties">—</h2>
+                <small>Registered buildings</small>
+            </div>
+
+            <div class="admin-stat-card">
+                <div class="admin-stat-icon">
+                    <i class="fas fa-door-open"></i>
+                </div>
+                <p>Total Units</p>
+                <h2 id="admin-total-units">—</h2>
+                <small>Registered rental units</small>
+            </div>
+
+            <div class="admin-stat-card">
+                <div class="admin-stat-icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <p>Active Tenancies</p>
+                <h2 id="admin-active-tenancies">—</h2>
+                <small>Current rental agreements</small>
+            </div>
+
+        </section>
+
+
+        <!-- PENDING ACTIONS -->
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Pending Administrative Actions</h2>
+                    <p>Items requiring administrator attention.</p>
+                </div>
+            </div>
+
+            <div class="admin-action-grid">
+
+                <a href="admin-verification.html" class="admin-action-card">
+                    <div>
+                        <i class="fas fa-shield-halved"></i>
+                        <span id="pending-verifications">—</span>
+                    </div>
+                    <strong>Property Verification</strong>
+                    <small>Review submitted verification requests</small>
+                </a>
+
+                <a href="admin-properties.html" class="admin-action-card">
+                    <div>
+                        <i class="fas fa-house-circle-exclamation"></i>
+                        <span id="pending-properties">—</span>
+                    </div>
+                    <strong>Property Approvals</strong>
+                    <small>Review properties awaiting approval</small>
+                </a>
+
+                <a href="admin-users.html" class="admin-action-card">
+                    <div>
+                        <i class="fas fa-user-clock"></i>
+                        <span id="pending-users">—</span>
+                    </div>
+                    <strong>Account Reviews</strong>
+                    <small>Review account applications</small>
+                </a>
+
+                <a href="admin-maintenance.html" class="admin-action-card">
+                    <div>
+                        <i class="fas fa-screwdriver-wrench"></i>
+                        <span id="pending-maintenance">—</span>
+                    </div>
+                    <strong>Maintenance Requests</strong>
+                    <small>Monitor unresolved maintenance issues</small>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- MANAGEMENT SHORTCUTS -->
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Platform Management</h2>
+                    <p>Access the main administrative departments.</p>
+                </div>
+            </div>
+
+            <div class="admin-management-grid">
+
+                <a href="admin-users.html" class="admin-management-card">
+                    <i class="fas fa-users"></i>
+                    <strong>User Management</strong>
+                    <span>Manage accounts, roles and permissions.</span>
+                </a>
+
+                <a href="admin-agencies.html" class="admin-management-card">
+                    <i class="fas fa-building"></i>
+                    <strong>Agency Management</strong>
+                    <span>Manage property management organisations.</span>
+                </a>
+
+                <a href="admin-properties.html" class="admin-management-card">
+                    <i class="fas fa-city"></i>
+                    <strong>Property Management</strong>
+                    <span>Review buildings, units and listings.</span>
+                </a>
+
+                <a href="admin-verification.html" class="admin-management-card">
+                    <i class="fas fa-file-circle-check"></i>
+                    <strong>Verification Centre</strong>
+                    <span>Review documents and inspection reports.</span>
+                </a>
+
+                <a href="admin-finance.html" class="admin-management-card">
+                    <i class="fas fa-money-bill-transfer"></i>
+                    <strong>Finance</strong>
+                    <span>Monitor financial records and transactions.</span>
+                </a>
+
+                <a href="admin-reports.html" class="admin-management-card">
+                    <i class="fas fa-chart-column"></i>
+                    <strong>Reports & Analytics</strong>
+                    <span>Analyse platform activity and performance.</span>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- RECENT ACTIVITY -->
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Administrative Activity</h2>
+                    <p>Recent actions recorded across the platform.</p>
+                </div>
+
+                <a href="admin-audit.html" class="text-link">View audit logs</a>
+            </div>
+
+            <div id="admin-recent-activity" class="activity-list">
+                <p>Activity information will appear here when connected.</p>
+            </div>
+
+        </section>
+
+
+        <!-- SECURITY -->
+        <section class="admin-security-notice">
+
+            <i class="fas fa-lock"></i>
+
+            <div>
+                <strong>Administrative security</strong>
+
+                <p>
+                    All privileged operations must be authorised by
+                    server-side permissions. Administrative actions,
+                    approvals and account changes must be recorded
+                    in the LIVIO audit log.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script type="module">
+    const userName = document.getElementById("user-name");
+    const welcomeName = document.getElementById("welcome-name");
+
+    userName.textContent = "Checking administrator access...";
+
+    try {
+        console.log("LIVIO dashboard script started.");
+
+        const { requireAdmin } = await import("../js/admin-guard.js");
+
+        console.log("Admin guard imported successfully.");
+
+        const admin = await requireAdmin();
+
+        console.log("Admin verification result:", admin);
+
+        if (!admin) {
+            userName.textContent = "Administrator verification failed.";
+        } else {
+            const name =
+                admin.user.user_metadata?.full_name ||
+                admin.user.email ||
+                "LIVIO Administrator";
+
+            userName.textContent = name;
+            welcomeName.textContent = name;
+
+            console.log("Administrator role:", admin.role);
+        }
+
+    } catch (error) {
+        console.error("Dashboard error:", error);
+        userName.textContent = "Error: " + error.message;
+    }
+</script>
+
+</body>
+</html>

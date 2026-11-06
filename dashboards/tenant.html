@@ -4,92 +4,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tenant Dashboard | LIVIO</title>
+    <title>Find Your Home | LIVIO</title>
+
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-    <aside class="sidebar">
-        <h2 class="logo">LIVIO<span>.</span></h2>
+    <header class="tenant-header">
+        <a href="../index.html" class="logo">LIVIO<span>.</span></a>
 
-        <p class="menu-title">TENANT MENU</p>
-
-        <nav>
-            <a href="tenant.html" class="active">Dashboard</a>
-            <a href="../properties.html">Find a Home</a>
+        <nav class="tenant-nav">
+            <a href="tenant.html" class="active">Discover</a>
+            <a href="../properties.html">Properties</a>
             <a href="../tenant/bookings.html">My Viewings</a>
             <a href="../tenant/applications.html">Applications</a>
             <a href="../tenant/tenancy.html">My Tenancy</a>
-            <a href="../tenant/maintenance.html">Maintenance</a>
-            <a href="../tenant/relocation.html">Relocation</a>
         </nav>
 
-        <button id="logout-btn">Sign Out</button>
-    </aside>
-
-    <main class="dashboard">
-        <header class="topbar">
-            <div>
-                <h1>Tenant Dashboard</h1>
-                <p>Manage your housing journey with LIVIO.</p>
-            </div>
-            <div id="user-name">Loading profile...</div>
-        </header>
-
-        <section class="welcome">
-            <h2>Welcome to LIVIO</h2>
-            <p>Find your next home and manage your tenancy in one place.</p>
-            <a href="../properties.html">Explore Properties</a>
-        </section>
-
-        <section class="stats">
-    <div class="stat-card">
-        <h3 id="active-applications">0</h3>
-        <p>Active Applications</p>
-    </div>
-
-    <div class="stat-card">
-        <h3 id="upcoming-viewings">0</h3>
-        <p>Upcoming Viewings</p>
-    </div>
-
-    <div class="stat-card">
-        <h3 id="maintenance-requests">0</h3>
-        <p>Open Maintenance Requests</p>
-    </div>
-
-    <div class="stat-card">
-        <h3 id="active-tenancies">0</h3>
-        <p>Active Tenancies</p>
-    </div>
-</section>
-
-        <section class="dashboard-content">
-            <h2>Quick Actions</h2>
-
-            <div class="actions">
-                <a href="../properties.html">Find a Property</a>
-                <a href="../tenant/applications.html">Track Applications</a>
-                <a href="../tenant/maintenance.html">Report a Problem</a>
-                <a href="../tenant/tenancy.html">View Tenancy Records</a>
-            </div>
-        </section>
-<section class="dashboard-content">
-    <h2>Recent Activity</h2>
-
-    <div id="recent-activity">
-
-        <div class="activity-item">
-            <div>
-                <h4>Loading activity...</h4>
-                <p>Your latest housing updates will appear here.</p>
-            </div>
+        <div class="tenant-account">
+            <span id="user-name">Loading profile...</span>
+            <button id="logout-btn">Sign Out</button>
         </div>
+    </header>
 
-    </div>
-</section>
+    <main class="tenant-marketplace">
+
+        <section class="marketplace-welcome">
+            <div>
+                <p class="eyebrow">YOUR NEXT HOME STARTS HERE</p>
+                <h1>Find a place<br>to call home.</h1>
+                <p>Discover available homes from landlords across your preferred location.</p>
+            </div>
+        </section>
+
+        <section class="property-search">
+            <form id="property-filter-form">
+
+                <div class="filter-field">
+                    <label for="location-filter">Location</label>
+                    <input type="text" id="location-filter"
+                        placeholder="e.g. Makindu, Nairobi">
+                </div>
+
+                <div class="filter-field">
+                    <label for="type-filter">Property Type</label>
+                    <select id="type-filter">
+                        <option value="">All property types</option>
+                        <option value="bedsitter">Bedsitter</option>
+                        <option value="studio">Studio</option>
+                        <option value="apartment">Apartment</option>
+                        <option value="house">House</option>
+                        <option value="single-room">Single Room</option>
+                    </select>
+                </div>
+
+                <div class="filter-field">
+                    <label for="min-price">Minimum Rent (KSh)</label>
+                    <input type="number" id="min-price" min="0" placeholder="Minimum">
+                </div>
+
+                <div class="filter-field">
+                    <label for="max-price">Maximum Rent (KSh)</label>
+                    <input type="number" id="max-price" min="0" placeholder="Maximum">
+                </div>
+
+                <div class="filter-field">
+                    <label for="bedrooms-filter">Bedrooms</label>
+                    <select id="bedrooms-filter">
+                        <option value="">Any</option>
+                        <option value="1">1 bedroom</option>
+                        <option value="2">2 bedrooms</option>
+                        <option value="3">3 bedrooms</option>
+                        <option value="4">4+ bedrooms</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="search-button">
+                    <i class="fas fa-search"></i> Search Homes
+                </button>
+
+            </form>
+        </section>
+
+        <section class="marketplace-section">
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">EXPLORE LIVIO</p>
+                    <h2>Available homes</h2>
+                    <p>Find a home that matches your lifestyle and budget.</p>
+                </div>
+
+                <select id="sort-properties">
+                    <option value="newest">Newest first</option>
+                    <option value="price-low">Lowest rent</option>
+                    <option value="price-high">Highest rent</option>
+                </select>
+            </div>
+
+            <div id="property-results" class="property-grid">
+                <p>Loading available properties...</p>
+            </div>
+
+            <div id="no-properties" class="empty-state" hidden>
+                <i class="fas fa-house-circle-xmark"></i>
+                <h3>No matching homes found</h3>
+                <p>Try changing your filters or searching another location.</p>
+            </div>
+
+        </section>
+
+        <section class="tenant-overview">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">YOUR ACCOUNT</p>
+                    <h2>Your housing journey</h2>
+                </div>
+            </div>
+
+            <div class="tenant-stats">
+                <div class="stat-card">
+                    <h3 id="active-applications">0</h3>
+                    <p>Active Applications</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3 id="upcoming-viewings">0</h3>
+                    <p>Upcoming Viewings</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3 id="maintenance-requests">0</h3>
+                    <p>Open Maintenance Requests</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3 id="active-tenancies">0</h3>
+                    <p>Active Tenancies</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="marketplace-section">
+            <div class="section-heading">
+                <h2>Recent activity</h2>
+            </div>
+
+            <div id="recent-activity">
+                <p>Loading activity...</p>
+            </div>
+        </section>
+
     </main>
 
     <script type="module" src="../js/tenant-dashboard.js"></script>
+
 </body>
 </html>

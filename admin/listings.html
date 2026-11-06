@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIVIO | Property Management</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+    <style>
+        .listing-page { padding: 25px; }
+        .listing-heading { display:flex; justify-content:space-between; align-items:center; gap:15px; flex-wrap:wrap; margin-bottom:25px; }
+        .listing-heading h1 { font-size:26px; }
+        .listing-heading p { color:#777; margin-top:7px; }
+        .listing-filters { display:flex; gap:12px; flex-wrap:wrap; margin:22px 0; }
+        .listing-filters input, .listing-filters select {
+            padding:12px; border:1px solid #ddd; border-radius:8px;
+            background:white; min-width:170px;
+        }
+        .listing-table-wrap { overflow-x:auto; background:white; border-radius:12px; border:1px solid #eee; }
+        .listing-table { width:100%; border-collapse:collapse; min-width:750px; }
+        .listing-table th, .listing-table td { padding:16px; text-align:left; border-bottom:1px solid #eee; font-size:13px; }
+        .listing-table th { background:#f8f8f8; color:#666; }
+        .status-pill { padding:6px 10px; border-radius:20px; background:#fff1df; color:#a65b08; font-size:11px; }
+        .listing-empty { text-align:center; padding:40px; color:#888; }
+        .listing-note { margin-top:20px; padding:15px; background:#fff8ee; border-left:4px solid #F28C28; border-radius:5px; font-size:13px; }
+        @media(max-width:600px) { .listing-page {padding:15px;} }
+    </style>
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <aside class="sidebar admin-sidebar">
+        <div class="logo">LIVIO</div>
+        <p class="admin-nav-label">ADMINISTRATION</p>
+
+        <nav>
+            <a href="../dashboards/admin.html">Overview</a>
+            <a href="user.html">User Management</a>
+            <a href="listing.html" class="active">Properties & Listings</a>
+            <a href="verification.html">Verification Centre</a>
+            <a href="report.html">Reports & Analytics</a>
+        </nav>
+
+        <div style="margin-top:auto;padding:20px;">
+            <a href="../dashboards/admin.html">← Back to dashboard</a>
+        </div>
+    </aside>
+
+    <main class="dashboard listing-page">
+
+        <header class="listing-heading">
+            <div>
+                <h1>Property Management</h1>
+                <p>Review and manage properties submitted to LIVIO.</p>
+            </div>
+            <div><strong>ADMIN CONTROL</strong></div>
+        </header>
+
+        <section class="admin-stats-grid">
+
+            <article class="admin-stat-card">
+                <span>Total Listings</span>
+                <h2 id="total-listings">—</h2>
+            </article>
+
+            <article class="admin-stat-card">
+                <span>Pending Review</span>
+                <h2 id="pending-listings">—</h2>
+            </article>
+
+            <article class="admin-stat-card">
+                <span>Approved</span>
+                <h2 id="approved-listings">—</h2>
+            </article>
+
+            <article class="admin-stat-card">
+                <span>Rejected</span>
+                <h2 id="rejected-listings">—</h2>
+            </article>
+
+        </section>
+
+        <section class="listing-filters">
+
+            <input
+                type="search"
+                id="listing-search"
+                placeholder="Search property or location..."
+            >
+
+            <select id="listing-status">
+                <option value="">All statuses</option>
+                <option value="pending">Pending</option>
+                <option value="approved">Approved</option>
+                <option value="rejected">Rejected</option>
+            </select>
+
+            <select id="listing-type">
+                <option value="">All property types</option>
+                <option value="apartment">Apartment</option>
+                <option value="house">House</option>
+                <option value="bedsitter">Bedsitter</option>
+                <option value="commercial">Commercial</option>
+            </select>
+
+        </section>
+
+        <section class="listing-table-wrap">
+
+            <table class="listing-table">
+
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Location</th>
+                        <th>Type</th>
+                        <th>Submitted</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="listing-table-body">
+                    <tr>
+                        <td colspan="6" class="listing-empty">
+                            Loading property records...
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <div class="listing-note">
+            <strong>Approval policy:</strong>
+            Every property must pass LIVIO's independent verification
+            before publication. Property owners and submitting landlords
+            cannot approve their own listings.
+        </div>
+
+    </main>
+
+</div>
+
+<script type="module">
+    import { requireAdmin } from "../js/admin-guard.js";
+
+    requireAdmin();
+</script>
+
+</body>
+</html>

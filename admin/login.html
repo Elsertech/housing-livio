@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIVIO | Administrator Access</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #171717;
+            color: #222;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 430px;
+            background: #fff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,.3);
+        }
+
+        .brand {
+            color: #F28C28;
+            font-size: 30px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            margin-top: 8px;
+            color: #777;
+            font-size: 13px;
+        }
+
+        h2 {
+            margin-top: 35px;
+            font-size: 23px;
+        }
+
+        .description {
+            color: #777;
+            font-size: 14px;
+            margin: 10px 0 25px;
+            line-height: 1.5;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin: 17px 0 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #F28C28;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            margin-top: 25px;
+            background: #F28C28;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+        }
+
+        #login-message {
+            margin-top: 16px;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #c0392b;
+        }
+
+        .security-note {
+            margin-top: 28px;
+            padding-top: 18px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #888;
+            font-size: 12px;
+        }
+
+        @media(max-width: 480px) {
+            .login-container {
+                padding: 28px 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="login-container">
+
+        <div class="brand">LIVIO</div>
+        <div class="subtitle">PRIVATE ADMINISTRATION PORTAL</div>
+
+        <h2>Administrator Sign In</h2>
+
+        <p class="description">
+            This secure entrance is reserved for authorised
+            LIVIO administration personnel.
+        </p>
+
+        <form id="admin-login-form">
+
+            <label for="email">Administrator Email</label>
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                autocomplete="username"
+                required
+            >
+
+            <label for="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+                required
+            >
+
+            <button type="submit" id="login-button">
+                Sign In Securely
+            </button>
+
+            <p id="login-message" role="alert"></p>
+
+        </form>
+
+        <div class="security-note">
+            Restricted access · LIVIO Administration
+        </div>
+
+    </main>
+
+    
+<script type="module">
+    import { supabase } from "../js/supabase.js";
+
+    const form = document.getElementById("admin-login-form");
+    const button = document.getElementById("login-button");
+    const message = document.getElementById("login-message");
+
+    // Display messages to the administrator
+    function showMessage(text, type = "error") {
+        message.textContent = text;
+        message.style.color =
+            type === "success" ? "#15803d" : "#dc2626";
+    }
+
+    // Verify administrator access
+    async function checkAdminAccess(user) {
+        const { data, error } = await supabase
+            .from("admin_users")
+            .select("user_id, role, status")
+            .eq("user_id", user.id)
+            .maybeSingle();
+
+        console.log("LIVIO administrator verification:", {
+            userId: user.id,
+            admin: data,
+            error: error
+        });
+
+        if (error) {
+            console.error("Admin verification error:", error.message);
+            throw new Error("Unable to verify administrator access.");
+        }
+
+        if (!data || data.status !== "active") {
+            throw new Error("This account is not authorised for administration.");
+        }
+
+        if (![
+            "super_admin",
+            "property_admin",
+            "verification_officer",
+            "finance_admin",
+            "support_admin"
+        ].includes(data.role)) {
+            throw new Error("Invalid administrator role.");
+        }
+
+        return data;
+    }
+
+    // Handle administrator login
+    form.addEventListener("submit", async function(event) {
+        event.preventDefault();
+
+        if (button.disabled) return;
+
+        button.disabled = true;
+        button.textContent = "Verifying access...";
+        showMessage("");
+
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+
+        try {
+            // Authenticate with Supabase
+            const { data, error } = await supabase.auth.signInWithPassword({
+                email: email,
+                password: password
+            });
+
+            if (error) {
+                throw new Error(error.message);
+            }
+
+            if (!data.user) {
+                throw new Error("Unable to identify your account.");
+            }
+
+            // Check administrator database record
+            const admin = await checkAdminAccess(data.user);
+
+            showMessage("Access verified. Opening administrator dashboard...", "success");
+
+            console.log("LIVIO admin login successful:", admin.role);
+
+            // Redirect to administrator dashboard
+            window.location.replace("../dashboards/admin.html");
+
+        } catch (error) {
+            console.error("LIVIO admin login failed:", error);
+
+            // Sign out if authentication succeeded but admin verification failed
+            await supabase.auth.signOut();
+
+            showMessage(error.message || "Administrator login failed.");
+
+            button.disabled = false;
+            button.textContent = "Sign In Securely";
+        }
+    });
+</script>
+
+    <script type="module">
+    import { requireAdmin } from "../js/admin-guard.js";
+    requireAdmin();
+</script>
+
+</body>
+</html>

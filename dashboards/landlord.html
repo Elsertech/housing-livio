@@ -1,0 +1,394 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIVIO | Landlord Portal</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <a href="../index.html" class="logo">
+            <i class="fas fa-house"></i> LIVIO
+        </a>
+
+        <p class="sidebar-label">PROPERTY MANAGEMENT</p>
+
+        <nav class="sidebar-nav">
+
+            <a href="landlord.html" class="active">
+                <i class="fas fa-chart-pie"></i> Overview
+            </a>
+
+            <a href="../properties/my-properties.html">
+                <i class="fas fa-building"></i> My Properties
+            </a>
+
+            <a href="../properties/add-property.html">
+                <i class="fas fa-plus-circle"></i> Add Property
+            </a>
+
+            <a href="#">
+                <i class="fas fa-shield-halved"></i> Verification
+            </a>
+
+            <a href="tenants.html">
+                <i class="fas fa-users"></i> Tenants
+            </a>
+
+            <a href="rent.html">
+                <i class="fas fa-wallet"></i> Rent & Payments
+            </a>
+
+            <a href="billing.html">
+                <i class="fas fa-file-invoice-dollar"></i> Financial Records
+            </a>
+
+            <a href="maintenance.html">
+                <i class="fas fa-screwdriver-wrench"></i> Maintenance
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="../index.html">
+                <i class="fas fa-globe"></i> Visit LIVIO
+            </a>
+
+            <button id="logout-btn">
+                <i class="fas fa-right-from-bracket"></i> Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN DASHBOARD -->
+    <main class="dashboard">
+
+        <!-- TOP HEADER -->
+        <header class="dashboard-header">
+
+            <div>
+                <h1>Overview</h1>
+                <p>Your property business at a glance.</p>
+            </div>
+
+            <div class="header-user">
+
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+
+                <div>
+                    <strong id="user-name">Loading...</strong>
+                    <small>Landlord Account</small>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- WELCOME SECTION -->
+        <section class="welcome">
+
+            <div>
+                <p class="welcome-label">LIVIO PROPERTY PORTAL</p>
+
+                <h2>
+                    Welcome back,
+                    <span id="welcome-name">Landlord</span>
+                </h2>
+
+                <p>
+                    Manage your properties, monitor occupancy and
+                    stay in control of your rental business.
+                </p>
+            </div>
+
+            <a href="../properties/add-property.html" class="primary-btn">
+                <i class="fas fa-plus"></i> Add Property
+            </a>
+
+        </section>
+
+
+        <!-- PORTFOLIO STATISTICS -->
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+
+                <p>Total Properties</p>
+                <h2 id="total-properties">0</h2>
+                <small>Your registered buildings</small>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    <i class="fas fa-house-circle-check"></i>
+                </div>
+
+                <p>Approved Listings</p>
+                <h2 id="approved-properties">0</h2>
+                <small>Properties approved by LIVIO</small>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+
+                <p>Active Tenants</p>
+                <h2 id="active-tenants">0</h2>
+                <small>Currently occupying units</small>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    <i class="fas fa-screwdriver-wrench"></i>
+                </div>
+
+                <p>Open Maintenance</p>
+                <h2 id="open-maintenance">0</h2>
+                <small>Requests requiring attention</small>
+
+            </div>
+
+        </section>
+
+
+        <!-- UNIT OVERVIEW -->
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Unit Overview</h2>
+                    <p>Understand the occupancy of your rental units.</p>
+                </div>
+
+                <a href="../properties/my-properties.html" class="text-link">
+                    Manage units
+                </a>
+
+            </div>
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-door-open"></i>
+                    </div>
+
+                    <p>Total Units</p>
+                    <h2 id="total-units">0</h2>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+
+                    <p>Available Units</p>
+                    <h2 id="available-units">0</h2>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+
+                    <p>Occupied Units</p>
+                    <h2 id="occupied-units">0</h2>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+
+                    <p>Pending Listings</p>
+                    <h2 id="pending-listings">0</h2>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUICK ACTIONS -->
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Quick Actions</h2>
+                    <p>Common tasks for managing your properties.</p>
+                </div>
+
+            </div>
+
+            <div class="quick-actions">
+
+                <a href="../properties/add-property.html" class="quick-action-card">
+                    <i class="fas fa-building"></i>
+                    <strong>Add a Property</strong>
+                    <span>Register a new building</span>
+                </a>
+
+                <a href="../properties/my-properties.html" class="quick-action-card">
+                    <i class="fas fa-door-open"></i>
+                    <strong>Manage Units</strong>
+                    <span>Manage individual rental units</span>
+                </a>
+
+                <a href="tenants.html" class="quick-action-card">
+                    <i class="fas fa-users"></i>
+                    <strong>View Tenants</strong>
+                    <span>Manage tenant relationships</span>
+                </a>
+
+                <a href="maintenance.html" class="quick-action-card">
+                    <i class="fas fa-tools"></i>
+                    <strong>Maintenance</strong>
+                    <span>Track repair requests</span>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- VERIFICATION -->
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Verification Centre</h2>
+                    <p>Monitor your account and property verification.</p>
+                </div>
+
+                <a href="#" class="text-link">View details</a>
+
+            </div>
+
+            <div class="verification-card">
+
+                <div class="verification-icon">
+                    <i class="fas fa-shield-halved"></i>
+                </div>
+
+                <div>
+                    <h3>Build trust with verified properties</h3>
+
+                    <p>
+                        Submit your identity documents and evidence of
+                        property ownership or management authority.
+                        LIVIO will review your documents and arrange
+                        property verification before publication.
+                    </p>
+                </div>
+
+                <span class="status-badge status-pending">
+                    Verification required
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- MY PROPERTIES -->
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>My Properties</h2>
+                    <p>Monitor your registered buildings and listings.</p>
+                </div>
+
+                <a href="../properties/my-properties.html" class="text-link">
+                    View all properties
+                </a>
+
+            </div>
+
+            <div id="landlord-properties" class="empty-state">
+
+                <i class="fas fa-house"></i>
+
+                <h3>No properties yet</h3>
+
+                <p>
+                    Your registered properties and their units
+                    will appear here.
+                </p>
+
+                <a href="../properties/add-property.html" class="primary-btn">
+                    <i class="fas fa-plus"></i> Add Your First Property
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- RECENT ACTIVITY -->
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Recent Activity</h2>
+                    <p>Keep track of important account activities.</p>
+                </div>
+
+            </div>
+
+            <div id="landlord-activity" class="activity-list">
+                <p>No recent activity yet.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- KEEP EXISTING AUTHENTICATION SCRIPT -->
+<script type="module" src="../js/landlord-dashboard.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,487 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIVIO | Add Property</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <a href="../index.html" class="logo">
+            <i class="fas fa-house"></i> LIVIO
+        </a>
+
+        <p class="sidebar-label">PROPERTY MANAGEMENT</p>
+
+        <nav class="sidebar-nav">
+
+            <a href="../dashboards/landlord.html">
+                <i class="fas fa-chart-pie"></i> Overview
+            </a>
+
+            <a href="my-properties.html">
+                <i class="fas fa-building"></i> My Properties
+            </a>
+
+            <a href="add-property.html" class="active">
+                <i class="fas fa-plus-circle"></i> Add Property
+            </a>
+
+            <a href="#">
+                <i class="fas fa-shield-halved"></i> Verification
+            </a>
+
+            <a href="../dashboards/tenants.html">
+                <i class="fas fa-users"></i> Tenants
+            </a>
+
+            <a href="../dashboards/rent.html">
+                <i class="fas fa-wallet"></i> Rent & Payments
+            </a>
+
+            <a href="../dashboards/maintenance.html">
+                <i class="fas fa-tools"></i> Maintenance
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="../index.html">
+                <i class="fas fa-globe"></i> Visit LIVIO
+            </a>
+
+            <button id="logout-btn">
+                <i class="fas fa-right-from-bracket"></i> Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="dashboard">
+
+        <header class="dashboard-header">
+
+            <div>
+                <h1>Add a Property</h1>
+                <p>Register a building or rental property on LIVIO.</p>
+            </div>
+
+            <div class="header-user">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+
+                <div>
+                    <strong id="user-name">Loading...</strong>
+                    <small>Landlord Account</small>
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- INTRODUCTION -->
+        <section class="welcome">
+
+            <div>
+                <p class="welcome-label">PROPERTY REGISTRATION</p>
+
+                <h2>Bring your property to LIVIO</h2>
+
+                <p>
+                    Register your property, provide accurate information
+                    and add the rental units available for tenants.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- REGISTRATION STEPS -->
+        <section class="dashboard-section">
+
+            <div class="property-step-indicator">
+
+                <div class="property-step active">
+                    <span>1</span>
+                    <small>Property Details</small>
+                </div>
+
+                <div class="property-step">
+                    <span>2</span>
+                    <small>Ownership</small>
+                </div>
+
+                <div class="property-step">
+                    <span>3</span>
+                    <small>Features</small>
+                </div>
+
+                <div class="property-step">
+                    <span>4</span>
+                    <small>Rental Units</small>
+                </div>
+
+                <div class="property-step">
+                    <span>5</span>
+                    <small>Media & Review</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FORM -->
+        <form id="add-property-form">
+
+            <!-- SECTION 1 -->
+            <section class="dashboard-section property-form-section">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>01. Property Information</h2>
+                        <p>Tell us about the building or property you manage.</p>
+                    </div>
+                </div>
+
+                <div class="property-form-grid">
+
+                    <div class="form-group">
+                        <label for="property-name">Property / Building Name *</label>
+                        <input type="text" id="property-name" name="property_name"
+                               placeholder="e.g. Greenview Apartments" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="property-type">Property Type *</label>
+                        <select id="property-type" name="property_type" required>
+                            <option value="">Select property type</option>
+                            <option value="apartment">Apartment Building</option>
+                            <option value="residential">Residential House</option>
+                            <option value="bedsitter">Bedsitter Complex</option>
+                            <option value="commercial">Commercial Building</option>
+                            <option value="mixed-use">Mixed-use Property</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="county">County *</label>
+                        <select id="county" name="county" required>
+                            <option value="">Select county</option>
+                            <option>Makueni</option>
+                            <option>Nairobi</option>
+                            <option>Kiambu</option>
+                            <option>Machakos</option>
+                            <option>Kajiado</option>
+                            <option>Murang'a</option>
+                            <option>Nyeri</option>
+                            <option>Kirinyaga</option>
+                            <option>Embu</option>
+                            <option>Meru</option>
+                            <option>Tharaka-Nithi</option>
+                            <option>Kitui</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="town">Town / City *</label>
+                        <input type="text" id="town" name="town"
+                               placeholder="e.g. Ruiru" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="estate">Estate / Neighbourhood</label>
+                        <input type="text" id="estate" name="estate"
+                               placeholder="e.g. Membley">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="landmark">Nearby Landmark</label>
+                        <input type="text" id="landmark" name="landmark"
+                               placeholder="e.g. Near the main shopping centre">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="physical-address">Physical Address / Directions *</label>
+                        <textarea id="physical-address" name="physical_address"
+                                  rows="3"
+                                  placeholder="Provide clear directions to the property"
+                                  required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="postal-address">Postal Address (Optional)</label>
+                        <input type="text" id="postal-address" name="postal_address"
+                               placeholder="P.O. Box">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="year-built">Year Built (Optional)</label>
+                        <input type="number" id="year-built" name="year_built"
+                               min="1900" max="2100" placeholder="e.g. 2022">
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- SECTION 2 -->
+            <section class="dashboard-section property-form-section">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>02. Ownership & Management</h2>
+                        <p>Tell us in what capacity you are submitting this property.</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="ownership-type">Your Relationship to This Property *</label>
+
+                    <select id="ownership-type" name="ownership_type" required>
+                        <option value="">Select your relationship</option>
+                        <option value="owner">I am the property owner</option>
+                        <option value="authorized-agent">I am an authorised agent</option>
+                        <option value="property-manager">I am a property manager</option>
+                        <option value="agency">I represent a management agency</option>
+                    </select>
+                </div>
+
+                <div class="property-info-notice">
+                    <i class="fas fa-shield-halved"></i>
+
+                    <div>
+                        <strong>Property verification is mandatory</strong>
+                        <p>
+                            LIVIO requires evidence of ownership or valid
+                            management authority. Your property will not be
+                            published until the verification process is complete.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="owner-name">Property Owner's Full Name *</label>
+                    <input type="text" id="owner-name" name="owner_name"
+                           placeholder="Enter the legal owner's name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="owner-phone">Owner's Contact Number *</label>
+                    <input type="tel" id="owner-phone" name="owner_phone"
+                           placeholder="e.g. 07XXXXXXXX or +2547XXXXXXXX"
+                           required>
+                </div>
+
+            </section>
+
+
+            <!-- SECTION 3 -->
+            <section class="dashboard-section property-form-section">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>03. Property Features</h2>
+                        <p>Describe the facilities and features available.</p>
+                    </div>
+                </div>
+
+                <div class="property-form-grid">
+
+                    <div class="form-group">
+                        <label for="floors">Number of Floors</label>
+                        <input type="number" id="floors" name="floors"
+                               min="1" placeholder="e.g. 4">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="parking">Parking Spaces</label>
+                        <input type="number" id="parking" name="parking"
+                               min="0" placeholder="e.g. 10">
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label>Available Facilities</label>
+
+                    <div class="property-checkbox-grid">
+
+                        <label><input type="checkbox" name="features" value="security"> Security</label>
+                        <label><input type="checkbox" name="features" value="parking"> Parking</label>
+                        <label><input type="checkbox" name="features" value="water"> Reliable Water</label>
+                        <label><input type="checkbox" name="features" value="borehole"> Borehole</label>
+                        <label><input type="checkbox" name="features" value="backup-power"> Backup Power</label>
+                        <label><input type="checkbox" name="features" value="wifi"> Internet / Wi-Fi</label>
+                        <label><input type="checkbox" name="features" value="laundry"> Laundry Area</label>
+                        <label><input type="checkbox" name="features" value="garden"> Garden</label>
+                        <label><input type="checkbox" name="features" value="elevator"> Elevator</label>
+                        <label><input type="checkbox" name="features" value="cctv"> CCTV</label>
+                        <label><input type="checkbox" name="features" value="playground"> Playground</label>
+                        <label><input type="checkbox" name="features" value="fence"> Perimeter Wall / Fence</label>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="property-description">Property Description</label>
+
+                    <textarea id="property-description" name="description"
+                              rows="5"
+                              placeholder="Describe the property, its environment, accessibility and other important details..."></textarea>
+                </div>
+
+            </section>
+
+
+            <!-- SECTION 4 -->
+            <section class="dashboard-section property-form-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>04. Rental Units</h2>
+                        <p>
+                            Add the individual units available within this property.
+                            Each unit will have its own rental information and gallery.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="property-info-notice">
+                    <i class="fas fa-door-open"></i>
+
+                    <div>
+                        <strong>One property can contain multiple units</strong>
+                        <p>
+                            For example, Greenview Apartments may contain bedsitters,
+                            studios, one-bedroom and two-bedroom units. Each unit
+                            will become a separate rental listing after approval.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="unit-registration-placeholder">
+
+                    <i class="fas fa-building-circle-check"></i>
+
+                    <h3>Unit registration comes next</h3>
+
+                    <p>
+                        After saving your property details, you will be able
+                        to register individual units, set monthly rent,
+                        specify availability and upload unit-specific photos.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- SECTION 5 -->
+            <section class="dashboard-section property-form-section">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>05. Property Photos & Documents</h2>
+                        <p>Prepare the supporting materials for LIVIO review.</p>
+                    </div>
+                </div>
+
+                <div class="property-upload-notice">
+
+                    <i class="fas fa-cloud-arrow-up"></i>
+
+                    <h3>Media and document uploads</h3>
+
+                    <p>
+                        The secure upload centre will allow you to submit
+                        property images, ownership documents and management
+                        agreements. These files will be stored privately
+                        until reviewed.
+                    </p>
+
+                    <span>Secure uploads will be enabled in the next development step.</span>
+
+                </div>
+
+            </section>
+
+
+            <!-- SUBMISSION -->
+            <section class="dashboard-section property-form-section">
+
+                <div class="property-info-notice">
+                    <i class="fas fa-circle-info"></i>
+
+                    <div>
+                        <strong>Before submitting</strong>
+                        <p>
+                            Submitting a property does not automatically
+                            publish it. LIVIO must independently review
+                            ownership or authority evidence and verify the
+                            property before it becomes visible to tenants.
+                        </p>
+                    </div>
+                </div>
+
+                <label class="property-agreement">
+                    <input type="checkbox" id="property-agreement" required>
+
+                    <span>
+                        I confirm that the information provided is accurate
+                        and that I have the legal authority to submit this
+                        property for registration on LIVIO.
+                    </span>
+                </label>
+
+                <div class="property-form-actions">
+
+                    <a href="../dashboards/landlord.html" class="secondary-btn">
+                        Cancel
+                    </a>
+
+                    <button type="submit" class="primary-btn" disabled>
+                        Submit Property
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+                <p class="form-security-note">
+                    <i class="fas fa-lock"></i>
+                    Your information is handled through LIVIO's verification process.
+                </p>
+
+            </section>
+
+        </form>
+
+    </main>
+
+</div>
+
+<script type="module" src="../js/landlord-dashboard.js"></script>
+
+</body>
+</html>
