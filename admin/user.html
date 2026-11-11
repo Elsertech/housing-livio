@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIVIO | Administrator Management</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+    <style>
+        .admin-management {
+            padding: 30px;
+        }
+
+        .page-heading {
+            margin-bottom: 25px;
+        }
+
+        .page-heading h1 {
+            font-size: 27px;
+            margin-bottom: 8px;
+        }
+
+        .page-heading p {
+            color: #718096;
+        }
+
+        .management-card {
+            background: #fff;
+            border: 1px solid #e5eaf1;
+            border-radius: 14px;
+            padding: 24px;
+            margin-bottom: 25px;
+        }
+
+        .management-card h2 {
+            font-size: 19px;
+            margin-bottom: 8px;
+        }
+
+        .card-description {
+            color: #718096;
+            font-size: 14px;
+            margin-bottom: 22px;
+        }
+
+        .admin-form {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #dce3ec;
+            border-radius: 8px;
+            background: #fff;
+            font-size: 14px;
+        }
+
+        .security-note {
+            background: #f1f6ff;
+            color: #34517c;
+            padding: 15px;
+            border-radius: 9px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .action-button {
+            padding: 13px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #142b49;
+            color: white;
+            font-weight: 600;
+            cursor: not-allowed;
+            opacity: .65;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 650px;
+        }
+
+        .admin-table th,
+        .admin-table td {
+            padding: 15px 12px;
+            text-align: left;
+            border-bottom: 1px solid #edf0f5;
+            font-size: 13px;
+        }
+
+        .admin-table th {
+            color: #718096;
+            font-weight: 600;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 35px 15px;
+            color: #718096;
+        }
+
+        .role-label {
+            color: #34517c;
+            background: #edf4ff;
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        @media(max-width: 700px) {
+            .admin-management {
+                padding: 18px;
+            }
+
+            .admin-form {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <aside class="sidebar admin-sidebar">
+
+        <div class="sidebar-logo">
+            <h2>LIVIO</h2>
+            <span>ADMINISTRATION</span>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="../dashboards/admin.html">Overview</a>
+
+            <p>PLATFORM MANAGEMENT</p>
+            <a href="user.html" class="active">Administrator Management</a>
+            <a href="listing.html">Property Management</a>
+            <a href="verification.html">Verification Centre</a>
+
+            <p>HOUSING OPERATIONS</p>
+            <a href="../dashboards/admin.html">Housing Operations</a>
+
+            <p>SYSTEM</p>
+            <a href="../dashboards/admin.html">Return to Dashboard</a>
+        </nav>
+
+    </aside>
+
+    <main class="main-content">
+
+        <div class="admin-management">
+
+            <header class="page-heading">
+                <h1>Administrator Management</h1>
+                <p>Appoint, assign and manage the LIVIO administration team.</p>
+            </header>
+
+            <section class="management-card">
+
+                <h2>Appoint New Administrator</h2>
+
+                <p class="card-description">
+                    Assign an administrator's responsibilities before sending an invitation.
+                </p>
+
+                <form class="admin-form">
+
+                    <div class="form-group">
+                        <label for="admin-name">Full Name</label>
+                        <input
+                            type="text"
+                            id="admin-name"
+                            placeholder="Enter full name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="admin-email">Email Address</label>
+                        <input
+                            type="email"
+                            id="admin-email"
+                            placeholder="Enter email address"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="admin-phone">Phone Number</label>
+                        <input
+                            type="tel"
+                            id="admin-phone"
+                            placeholder="e.g. 0712345678"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="admin-role">Administrator Position</label>
+
+                        <select id="admin-role" required>
+                            <option value="">Select administrator role</option>
+                            <option value="property_admin">Property Admin</option>
+                            <option value="verification_officer">Verification Officer</option>
+                            <option value="finance_admin">Finance Admin</option>
+                            <option value="support_admin">Support Admin</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full">
+                        <div class="security-note">
+                            <strong>Security notice</strong><br>
+                            Administrator accounts are created through a secure
+                            invitation process. The Super Admin cannot share
+                            login credentials or allow public administrator registration.
+                        </div>
+                    </div>
+
+                    <div class="form-group full">
+                        <button type="button" class="action-button" disabled>
+                            Invitation Service Not Yet Connected
+                        </button>
+                    </div>
+
+                </form>
+
+            </section>
+
+            <section class="management-card">
+
+                <h2>Administrator Directory</h2>
+
+                <p class="card-description">
+                    View the administrators appointed to manage LIVIO.
+                </p>
+
+                <div class="table-wrapper">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Administrator</th>
+                                <th>Email</th>
+                                <th>Position</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td colspan="4" class="empty-state">
+                                    Administrator records will appear here
+                                    once the secure management service is connected.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+<script type="module">
+    import { requireAdmin } from "../js/admin-guard.js";
+
+    const admin = await requireAdmin();
+
+    if (!admin) {
+        // The admin guard handles the login redirect.
+    } else if (admin.role !== "super_admin") {
+        alert("Access denied. Only the Super Admin can manage administrators.");
+
+        window.location.replace("../dashboards/admin.html");
+    } else {
+        console.log("Super Admin access verified.");
+    }
+</script>
+</body>
+</html>
