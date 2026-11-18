@@ -1,101 +1,254 @@
 
+/* =========================================
+   LIVIO RESIDENCES – AUTHENTICATION DESIGN
+   Login & Registration
+========================================= */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #f4f6f9;
-    color: #172033;
+:root {
+    --livio-orange: #F28C28;
+    --livio-orange-dark: #df7715;
+    --livio-dark: #171717;
+    --livio-grey: #737373;
+    --livio-border: #e5e5e5;
+    --livio-background: #ffffff;
 }
+
+body {
+    font-family: "DM Sans", Arial, sans-serif;
+    background: var(--livio-background);
+    color: var(--livio-dark);
+}
+
+/* MAIN AUTHENTICATION LAYOUT */
 
 .auth-container {
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px 16px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+    align-items: stretch;
+    justify-content: stretch;
 }
+
+/* LEFT IMAGE AND BRANDING PANEL */
+
+.auth-container::before {
+    content: "Live Better,\A Live Livio\A\A Premium homes. Prime locations.\A A smarter way to find your next home.";
+    white-space: pre-wrap;
+
+    display: flex;
+    align-items: flex-end;
+
+    padding: 8%;
+
+    color: white;
+    font-size: clamp(20px, 2.3vw, 32px);
+    font-weight: 600;
+    line-height: 1.6;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.12)
+        ),
+        url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85");
+
+    background-size: cover;
+    background-position: center;
+}
+
+/* AUTHENTICATION CARD */
 
 .auth-card {
     background: white;
     width: 100%;
-    max-width: 440px;
-    padding: 38px;
-    border-radius: 14px;
-    box-shadow: 0 10px 35px rgba(0,0,0,0.07);
+    max-width: none;
+    min-height: 100vh;
+
+    padding: clamp(28px, 7vw, 90px);
+
+    border-radius: 35px 0 0 35px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    box-shadow: -10px 0 35px rgba(0, 0, 0, 0.04);
+    position: relative;
+    z-index: 1;
 }
+
+/* LOGO */
 
 .logo {
     display: inline-block;
-    color: #172033;
-    font-size: 28px;
-    font-weight: bold;
+    color: var(--livio-orange);
+    font-size: 25px;
+    font-weight: 800;
     text-decoration: none;
     margin-bottom: 25px;
 }
 
 .logo span {
-    color: #2878d0;
+    color: var(--livio-dark);
 }
 
+/* HEADINGS */
+
 h1 {
+    color: var(--livio-dark);
+    font-size: clamp(24px, 2.5vw, 32px);
+    font-weight: 700;
     margin-bottom: 10px;
 }
 
 .auth-card > p {
-    color: #697386;
+    color: var(--livio-grey);
     margin-bottom: 25px;
-    line-height: 1.5;
+    line-height: 1.6;
 }
+
+/* FORM LABELS */
 
 form label {
     display: block;
     margin: 16px 0 7px;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 14px;
+    color: #333333;
 }
+
+/* INPUTS AND SELECTS */
 
 form input,
 form select {
     width: 100%;
-    padding: 13px;
-    border: 1px solid #d8dee8;
-    border-radius: 7px;
-    font-size: 15px;
+    min-height: 48px;
+    padding: 13px 16px;
+
+    border: 1px solid var(--livio-border);
+    border-radius: 30px;
+
+    background: #ffffff;
+    color: var(--livio-dark);
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
+
+form input:focus,
+form select:focus {
+    border-color: var(--livio-orange);
+    box-shadow: 0 0 0 3px rgba(242, 140, 40, 0.12);
+}
+
+form input::placeholder {
+    color: #a3a3a3;
+}
+
+/* AUTHENTICATION BUTTON */
 
 form button {
     width: 100%;
+    min-height: 49px;
+
     padding: 14px;
     margin-top: 24px;
+
     border: none;
-    border-radius: 7px;
-    background: #172b4d;
+    border-radius: 30px;
+
+    background: var(--livio-orange);
     color: white;
-    font-size: 16px;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+
     cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
 }
 
 form button:hover {
-    background: #2878d0;
+    background: var(--livio-orange-dark);
+    transform: translateY(-1px);
 }
+
+/* AUTHENTICATION MESSAGES */
 
 #auth-message {
     margin-top: 15px;
     font-size: 14px;
     overflow-wrap: anywhere;
+    line-height: 1.5;
 }
+
+/* LOGIN / REGISTER SWITCH */
 
 .auth-switch {
     margin-top: 25px;
     text-align: center;
     font-size: 14px;
+    color: var(--livio-grey);
 }
 
 .auth-switch a {
-    color: #2878d0;
-    font-weight: bold;
+    color: var(--livio-orange-dark);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 850px) {
+    .auth-container {
+        grid-template-columns: 40% 60%;
+    }
+
+    .auth-card {
+        padding: 35px 25px;
+    }
+}
+
+@media (max-width: 600px) {
+    .auth-container {
+        display: flex;
+        min-height: 100vh;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 14px;
+        background: #f7f7f7;
+    }
+
+    .auth-container::before {
+        display: none;
+    }
+
+    .auth-card {
+        min-height: auto;
+        width: 100%;
+        max-width: 460px;
+        padding: 32px 24px;
+        border-radius: 20px;
+        box-shadow: 0 8px 35px rgba(0, 0, 0, 0.07);
+    }
+
+    h1 {
+        font-size: 25px;
+    }
 }

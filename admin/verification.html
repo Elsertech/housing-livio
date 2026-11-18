@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIVIO | Verification Centre</title>
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+
+<div class="dashboard-container">
+
+    <aside class="sidebar admin-sidebar">
+        <div class="logo">LIVIO</div>
+        <p class="admin-nav-label">ADMINISTRATION</p>
+
+        <nav>
+            <a href="../dashboards/admin.html">Overview</a>
+            <a href="users.html">User Management</a>
+            <a href="listings.html">Properties & Listings</a>
+            <a href="verification.html" class="active">Verification Centre</a>
+            <a href="reports.html">Reports & Analytics</a>
+        </nav>
+
+        <div style="margin-top:auto;padding:20px;">
+            <a href="../dashboards/admin.html">← Back to dashboard</a>
+        </div>
+    </aside>
+
+    <main class="dashboard">
+
+        <header class="listing-heading">
+            <div>
+                <h1>Verification Centre</h1>
+                <p>Independently review landlords, properties and rental units.</p>
+            </div>
+            <strong>ADMIN CONTROL</strong>
+        </header>
+
+        <section class="admin-stats-grid">
+
+            <article class="admin-stat-card">
+                <span>Pending Reviews</span>
+                <h2 id="pending-count">—</h2>
+            </article>
+
+            <article class="admin-stat-card">
+                <span>Under Review</span>
+                <h2 id="review-count">—</h2>
+            </article>
+
+            <article class="admin-stat-card">
+                <span>Verified</span>
+                <h2 id="verified-count">—</h2>
+            </article>
+
+            <article class="admin-stat-card">
+                <span>Rejected</span>
+                <h2 id="rejected-count">—</h2>
+            </article>
+
+        </section>
+
+        <section class="verification-section">
+            <h2>Property Submissions</h2>
+
+            <p id="verification-message">
+                Loading property submissions...
+            </p>
+
+            <div id="verification-list"></div>
+        </section>
+
+    </main>
+
+</div>
+
+
+<script type="module">
+    import { requireAdmin } from "../js/admin-guard.js";
+
+    const admin = await requireAdmin();
+
+    if (admin) {
+        const { loadVerificationProperties } =
+            await import("../js/admin-verification.js");
+
+        loadVerificationProperties();
+    }
+</script>
+
+</body>
+</html>

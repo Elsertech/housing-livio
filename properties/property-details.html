@@ -1,0 +1,430 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Property Review | LIVIO Administration</title>
+
+    <link rel="stylesheet" href="../css/admin.css">
+
+    <style>
+        .review-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .review-header h1 {
+            margin-bottom: 8px;
+        }
+
+        .review-section {
+            background: #fff;
+            padding: 24px;
+            margin-bottom: 22px;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0,0,0,.05);
+        }
+
+        .review-section h2 {
+            margin-bottom: 18px;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .detail-item {
+            padding: 12px;
+            background: #f7f8fa;
+            border-radius: 8px;
+            overflow-wrap: anywhere;
+        }
+
+        .detail-item span {
+            display: block;
+            color: #687080;
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        .detail-item strong {
+            color: #172033;
+        }
+
+        .unit-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 18px;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 14px;
+        }
+
+        .photo-grid img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 9px;
+            background: #f0f0f0;
+        }
+
+        .review-status {
+            display: inline-block;
+            padding: 7px 12px;
+            border-radius: 20px;
+            background: #fff2d8;
+            color: #875700;
+            font-size: 13px;
+            text-transform: capitalize;
+        }
+
+        .review-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .review-actions button {
+            border: 0;
+            padding: 12px 20px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .approve-button {
+            background: #16834a;
+            color: white;
+        }
+
+        .reject-button {
+            background: #c93636;
+            color: white;
+        }
+
+        .correction-button {
+            background: #e8a22b;
+            color: #171717;
+        }
+
+        .review-actions button:disabled {
+            opacity: .5;
+            cursor: not-allowed;
+        }
+
+        #review-message {
+            margin-bottom: 18px;
+            color: #555;
+        }
+
+        #rejection-reason {
+            width: 100%;
+            min-height: 100px;
+            padding: 12px;
+            border: 1px solid #d5d9df;
+            border-radius: 8px;
+            margin: 12px 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .review-container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- ADMIN SIDEBAR -->
+    <aside class="sidebar admin-sidebar">
+
+        <div class="logo">LIVIO</div>
+
+        <p class="admin-nav-label">ADMINISTRATION</p>
+
+        <nav>
+            <a href="../dashboards/admin.html">Overview</a>
+            <a href="../admin/users.html">User Management</a>
+            <a href="../admin/listings.html">Properties & Listings</a>
+            <a href="../admin/verification.html" class="active">
+                Verification Centre
+            </a>
+            <a href="../admin/reports.html">Reports & Analytics</a>
+        </nav>
+
+        <div style="margin-top:auto;padding:20px;">
+            <a href="../admin/verification.html">
+                ← Back to Verification
+            </a>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="dashboard">
+
+        <div class="review-container">
+
+            <a href="../admin/verification.html" class="back-link">
+                ← Back to Property Submissions
+            </a>
+
+            <header class="review-header">
+
+                <div>
+                    <h1>Property Review</h1>
+                    <p>Inspect and verify this property before publication.</p>
+                </div>
+
+                <span class="review-status" id="property-status">
+                    Loading...
+                </span>
+
+            </header>
+
+
+            <p id="review-message">
+                Loading property information...
+            </p>
+
+
+            <!-- PROPERTY INFORMATION -->
+            <section class="review-section">
+
+                <h2>Property Information</h2>
+
+                <div class="details-grid">
+
+                    <div class="detail-item">
+                        <span>Property Name</span>
+                        <strong id="property-name">Loading...</strong>
+                    </div>
+
+                    <div class="detail-item">
+                        <span>Property Type</span>
+                        <strong id="property-type">Loading...</strong>
+                    </div>
+
+                    <div class="detail-item">
+                        <span>County</span>
+                        <strong id="property-county">Loading...</strong>
+                    </div>
+
+                    <div class="detail-item">
+                        <span>Town</span>
+                        <strong id="property-town">Loading...</strong>
+                    </div>
+
+                    <div class="detail-item">
+                        <span>Address</span>
+                        <strong id="property-address">Loading...</strong>
+                    </div>
+
+                    <div class="detail-item">
+                        <span>Location Details</span>
+                        <strong id="property-location">Loading...</strong>
+                    </div>
+
+                    <div class="detail-item">
+                        <span>Latitude</span>
+                        <strong id="property-latitude">Not provided</strong>
+                    </div>
+
+                    <div class="detail-item">
+                        <span>Longitude</span>
+                        <strong id="property-longitude">Not provided</strong>
+                    </div>
+
+                    <div class="detail-item">
+                        <span>Verification Status</span>
+                        <strong id="property-verification">Loading...</strong>
+                    </div>
+
+                    <div class="detail-item">
+                        <span>Submission Date</span>
+                        <strong id="property-date">Loading...</strong>
+                    </div>
+
+                </div>
+
+                <h3 style="margin-top:25px;">Property Description</h3>
+
+                <p id="property-description">
+                    Loading description...
+                </p>
+
+            </section>
+
+
+            <!-- LANDLORD INFORMATION -->
+            <section class="review-section">
+
+                <h2>Landlord Information</h2>
+
+                <div class="details-grid">
+
+                    <div class="detail-item">
+                        <span>Landlord Name</span>
+                        <strong id="landlord-name">Loading...</strong>
+                    </div>
+
+                    <div class="detail-item">
+                        <span>Phone Number</span>
+                        <strong id="landlord-phone">Loading...</strong>
+                    </div>
+
+                    <div class="detail-item">
+                        <span>Account Role</span>
+                        <strong id="landlord-role">Loading...</strong>
+                    </div>
+
+                    <div class="detail-item">
+                        <span>Account Status</span>
+                        <strong id="landlord-status">Loading...</strong>
+                    </div>
+
+                </div>
+
+                <p style="margin-top:15px;">
+                    Landlord verification must be completed separately
+                    before this property can be published.
+                </p>
+
+            </section>
+
+
+            <!-- RENTAL UNITS -->
+            <section class="review-section">
+
+                <h2>Rental Units</h2>
+
+                <div id="rental-units">
+                    Loading rental units...
+                </div>
+
+            </section>
+
+
+            <!-- UNIT PHOTOGRAPHS -->
+            <section class="review-section">
+
+                <h2>Rental Unit Photographs</h2>
+
+                <p>Review the photographs submitted for each rental unit.</p>
+
+                <div id="property-photos">
+                    Loading photographs...
+                </div>
+
+            </section>
+
+
+            <!-- ADMINISTRATOR DECISION -->
+            <section class="review-section">
+
+                <h2>Administrator Decision</h2>
+
+                <p>
+                    Review the property information and evidence before
+                    making a verification decision.
+                </p>
+
+                <label for="rejection-reason">
+                    Rejection or correction notes
+                </label>
+
+                <textarea
+                    id="rejection-reason"
+                    placeholder="Enter your review notes here..."
+                ></textarea>
+
+                <div class="review-actions">
+
+                    <button
+                        type="button"
+                        class="approve-button"
+                        id="approve-property"
+                    >
+                        Verify Property
+                    </button>
+
+                    <button
+                        type="button"
+                        class="correction-button"
+                        id="request-corrections"
+                    >
+                        Request Corrections
+                    </button>
+
+                    <button
+                        type="button"
+                        class="reject-button"
+                        id="reject-property"
+                    >
+                        Reject Property
+                    </button>
+
+                </div>
+
+                <p style="margin-top:18px;color:#687080;">
+                    Publication will only be enabled after the required
+                    landlord and property verification checks are complete.
+                </p>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- ADMIN AUTHENTICATION AND PROPERTY DETAILS -->
+<script type="module">
+
+    import { requireAdmin } from "../js/admin-guard.js";
+
+    const admin = await requireAdmin();
+
+    if (admin) {
+
+        const { loadAdminPropertyDetails } =
+            await import("../js/admin-property-detail.js");
+
+        loadAdminPropertyDetails();
+
+    }
+
+</script>
+
+</body>
+</html>

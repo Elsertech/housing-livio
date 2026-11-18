@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,30 +8,25 @@
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/dashboard.css">
-    <link rel="stylesheet" href="https://cloudflare.com">
+    <link rel="stylesheet" href="../css/tenant.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
     <header class="tenant-header">
         <a href="../index.html" class="logo">LIVIO<span>.</span></a>
 
-        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle Menu">
-            <i class="fas fa-bars"></i>
-        </button>
-
-        <nav class="tenant-nav" id="tenant-nav">
-            <a href="tenant.html" class="active"><i class="fas fa-compass"></i> Discover</a>
-            <a href="../properties.html"><i class="fas fa-building"></i> Properties</a>
-            <a href="../tenant/bookings.html"><i class="fas fa-calendar-check"></i> My Viewings</a>
-            <a href="../tenant/applications.html"><i class="fas fa-file-signature"></i> Applications</a>
-            <a href="../tenant/tenancy.html"><i class="fas fa-house-user"></i> My Tenancy</a>
-            <a href="../tenant/maintenance.html"><i class="fas fa-wrench"></i> Maintenance</a>
-            <a href="../tenant/relocation.html"><i class="fas fa-truck-moving"></i> Relocation</a>
+        <nav class="tenant-nav">
+            <a href="tenant.html" class="active">Discover</a>
+            <a href="../properties.html">Properties</a>
+            <a href="../tenant/bookings.html">My Viewings</a>
+            <a href="../tenant/applications.html">Applications</a>
+            <a href="../tenant/tenancy.html">My Tenancy</a>
         </nav>
 
         <div class="tenant-account">
             <span id="user-name">Loading profile...</span>
-            <button id="logout-btn"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+            <button id="logout-btn">Sign Out</button>
         </div>
     </header>
 
@@ -39,50 +35,8 @@
         <section class="marketplace-welcome">
             <div>
                 <p class="eyebrow">YOUR NEXT HOME STARTS HERE</p>
-                <h1>Find a trusted place<br>to call home.</h1>
-                <p>Discover verified homes directly from vetted landlords across your preferred location.</p>
-                <div class="trust-pill">
-                    <i class="fas fa-shield-halved"></i> Verified Landlords &amp; Transparent Pricing
-                </div>
-            </div>
-        </section>
-
-        <section class="tenant-overview">
-            <div class="section-heading">
-                <div>
-                    <p class="eyebrow">AT A GLANCE</p>
-                    <h2>Your housing journey</h2>
-                </div>
-            </div>
-
-            <div class="tenant-stats">
-                <a href="../tenant/applications.html" class="stat-card-link">
-                    <div class="stat-card">
-                        <h3 id="active-applications">0</h3>
-                        <p><i class="fas fa-file-alt"></i> Active Applications</p>
-                    </div>
-                </a>
-
-                <a href="../tenant/bookings.html" class="stat-card-link">
-                    <div class="stat-card">
-                        <h3 id="upcoming-viewings">0</h3>
-                        <p><i class="fas fa-calendar-day"></i> Upcoming Viewings</p>
-                    </div>
-                </a>
-
-                <a href="../tenant/maintenance.html" class="stat-card-link">
-                    <div class="stat-card">
-                        <h3 id="maintenance-requests">0</h3>
-                        <p><i class="fas fa-screwdriver-wrench"></i> Open Maintenance</p>
-                    </div>
-                </a>
-
-                <a href="../tenant/tenancy.html" class="stat-card-link">
-                    <div class="stat-card">
-                        <h3 id="active-tenancies">0</h3>
-                        <p><i class="fas fa-key"></i> Active Tenancies</p>
-                    </div>
-                </a>
+                <h1>Find a place<br>to call home.</h1>
+                <p>Discover available homes from landlords across your preferred location.</p>
             </div>
         </section>
 
@@ -90,13 +44,13 @@
             <form id="property-filter-form">
 
                 <div class="filter-field">
-                    <label for="location-filter"><i class="fas fa-location-dot"></i> Location</label>
+                    <label for="location-filter">Location</label>
                     <input type="text" id="location-filter"
-                        placeholder="e.g. Konza, Malili, Kitengela">
+                        placeholder="e.g. Makindu, Nairobi">
                 </div>
 
                 <div class="filter-field">
-                    <label for="type-filter"><i class="fas fa-home"></i> Property Type</label>
+                    <label for="type-filter">Property Type</label>
                     <select id="type-filter">
                         <option value="">All property types</option>
                         <option value="bedsitter">Bedsitter</option>
@@ -109,12 +63,12 @@
 
                 <div class="filter-field">
                     <label for="min-price">Minimum Rent (KSh)</label>
-                    <input type="number" id="min-price" min="0" step="500" placeholder="e.g. 5,000">
+                    <input type="number" id="min-price" min="0" placeholder="Minimum">
                 </div>
 
                 <div class="filter-field">
                     <label for="max-price">Maximum Rent (KSh)</label>
-                    <input type="number" id="max-price" min="0" step="500" placeholder="e.g. 25,000">
+                    <input type="number" id="max-price" min="0" placeholder="Maximum">
                 </div>
 
                 <div class="filter-field">
@@ -128,25 +82,11 @@
                     </select>
                 </div>
 
-                <div class="filter-actions">
-                    <button type="submit" class="search-button">
-                        <i class="fas fa-search"></i> Search Homes
-                    </button>
-                    <button type="button" id="reset-filters-btn" class="reset-button">
-                        Reset
-                    </button>
-                </div>
+                <button type="submit" class="search-button">
+                    <i class="fas fa-search"></i> Search Homes
+                </button>
 
             </form>
-
-            <div class="quick-locations">
-                <span>Popular hubs:</span>
-                <button type="button" class="location-chip" data-loc="Konza">Konza</button>
-                <button type="button" class="location-chip" data-loc="Malili">Malili</button>
-                <button type="button" class="location-chip" data-loc="Kitengela">Kitengela</button>
-                <button type="button" class="location-chip" data-loc="Machakos">Machakos</button>
-                <button type="button" class="location-chip" data-loc="Nairobi">Nairobi</button>
-            </div>
         </section>
 
         <section class="marketplace-section">
@@ -156,3 +96,71 @@
                     <p class="eyebrow">EXPLORE LIVIO</p>
                     <h2>Available homes</h2>
                     <p>Find a home that matches your lifestyle and budget.</p>
+                </div>
+
+                <select id="sort-properties">
+                    <option value="newest">Newest first</option>
+                    <option value="price-low">Lowest rent</option>
+                    <option value="price-high">Highest rent</option>
+                </select>
+            </div>
+
+            <div id="property-results" class="property-grid">
+                <p>Loading available properties...</p>
+            </div>
+
+            <div id="no-properties" class="empty-state" hidden>
+                <i class="fas fa-house-circle-xmark"></i>
+                <h3>No matching homes found</h3>
+                <p>Try changing your filters or searching another location.</p>
+            </div>
+
+        </section>
+
+        <section class="tenant-overview">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">YOUR ACCOUNT</p>
+                    <h2>Your housing journey</h2>
+                </div>
+            </div>
+
+            <div class="tenant-stats">
+                <div class="stat-card">
+                    <h3 id="active-applications">0</h3>
+                    <p>Active Applications</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3 id="upcoming-viewings">0</h3>
+                    <p>Upcoming Viewings</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3 id="maintenance-requests">0</h3>
+                    <p>Open Maintenance Requests</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3 id="active-tenancies">0</h3>
+                    <p>Active Tenancies</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="marketplace-section">
+            <div class="section-heading">
+                <h2>Recent activity</h2>
+            </div>
+
+            <div id="recent-activity">
+                <p>Loading activity...</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script type="module" src="../js/tenant-dashboard.js"></script>
+
+</body>
+</html>

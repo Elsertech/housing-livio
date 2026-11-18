@@ -1,0 +1,339 @@
+
+:root {
+    --admin-navy: #101a2c;
+    --admin-navy-light: #1c2a40;
+    --admin-orange: #F28C28;
+    --admin-bg: #f4f6fa;
+    --admin-white: #ffffff;
+    --admin-text: #172033;
+    --admin-muted: #7b8494;
+    --admin-border: #e8ebf0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--admin-bg);
+    color: var(--admin-text);
+    font-family: Arial, sans-serif;
+}
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.admin-sidebar {
+    width: 250px;
+    min-width: 250px;
+    min-height: 100vh;
+    background: var(--admin-navy);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 16px;
+}
+
+.admin-sidebar .logo {
+    color: var(--admin-orange);
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    padding: 5px 12px 30px;
+}
+
+.admin-nav-label {
+    color: #8995a8;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    padding: 0 12px;
+    margin-bottom: 15px;
+}
+
+.admin-sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.admin-sidebar nav a,
+.admin-sidebar > div a {
+    display: block;
+    color: #c5ccda;
+    text-decoration: none;
+    padding: 13px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    transition: .2s ease;
+}
+
+.admin-sidebar nav a:hover,
+.admin-sidebar nav a.active {
+    color: white;
+    background: var(--admin-navy-light);
+    border-left: 3px solid var(--admin-orange);
+}
+
+.dashboard {
+    flex: 1;
+    min-width: 0;
+    padding: 32px;
+}
+
+.listing-page {
+    width: calc(100% - 250px);
+    padding: 32px;
+}
+
+.listing-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 28px;
+}
+
+.listing-heading h1 {
+    font-size: 27px;
+    margin: 0;
+}
+
+.listing-heading p {
+    margin-top: 8px;
+    color: var(--admin-muted);
+    font-size: 14px;
+}
+
+.listing-heading strong {
+    color: var(--admin-orange);
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.admin-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.admin-stat-card {
+    background: white;
+    border: 1px solid var(--admin-border);
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 0 3px 12px rgba(16, 26, 44, .03);
+}
+
+.admin-stat-card span {
+    display: block;
+    color: var(--admin-muted);
+    font-size: 13px;
+}
+
+.admin-stat-card h2 {
+    margin: 12px 0 0;
+    font-size: 27px;
+}
+
+.listing-filters {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 22px 0;
+}
+
+.listing-filters input,
+.listing-filters select {
+    min-width: 170px;
+    padding: 12px 14px;
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+    background: white;
+    font-size: 13px;
+}
+
+.listing-table-wrap {
+    overflow-x: auto;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--admin-border);
+}
+
+.listing-table {
+    width: 100%;
+    min-width: 750px;
+    border-collapse: collapse;
+}
+
+.listing-table th,
+.listing-table td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--admin-border);
+    font-size: 13px;
+}
+
+.listing-table th {
+    background: #f8f9fb;
+    color: #687386;
+    font-weight: 600;
+}
+
+.status-pill {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 20px;
+    background: #fff1df;
+    color: #a65b08;
+    font-size: 11px;
+}
+
+.listing-empty {
+    text-align: center;
+    padding: 40px;
+    color: var(--admin-muted);
+}
+
+.listing-note {
+    margin-top: 20px;
+    padding: 16px;
+    background: #fff8ee;
+    border-left: 4px solid var(--admin-orange);
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.verification-section {
+    background: white;
+    border: 1px solid var(--admin-border);
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 25px;
+}
+
+.verification-section h2 {
+    margin-top: 0;
+    font-size: 19px;
+}
+
+button,
+.admin-button {
+    background: var(--admin-orange);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 11px 17px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+@media (max-width: 900px) {
+    .admin-stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .admin-sidebar {
+        width: 210px;
+        min-width: 210px;
+    }
+
+    .listing-page {
+        width: calc(100% - 210px);
+    }
+}
+
+@media (max-width: 650px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .admin-sidebar {
+        width: 100%;
+        min-width: 0;
+        min-height: auto;
+    }
+
+    .admin-sidebar nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dashboard,
+    .listing-page {
+        width: 100%;
+        padding: 18px;
+    }
+
+    .admin-stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .admin-stat-card {
+        padding: 16px;
+    }
+}
+
+/* PROPERTY VERIFICATION CARDS */
+
+.verification-property-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.verification-property-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.09);
+}
+
+.verification-property-card h3 {
+    color: #101828;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.verification-property-card p {
+    color: #667085;
+    font-size: 14px;
+    margin: 9px 0;
+}
+
+.verification-property-card .verification-status {
+    display: inline-block;
+    background: #fff4e5;
+    color: #c66a0a;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.verification-property-card .admin-button {
+    display: inline-block;
+    background: #f28c28;
+    color: #ffffff;
+    padding: 11px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.verification-property-card .admin-button:hover {
+    background: #d97716;
+}

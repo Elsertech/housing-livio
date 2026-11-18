@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Find a Home | LIVIO Residences</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/properties.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="properties-header">
+        <div class="properties-nav">
+
+            <a href="index.html" class="properties-logo">
+                LIVIO<span>.</span>
+            </a>
+
+            <nav class="properties-links">
+                <a href="index.html">Home</a>
+                <a href="properties.html" class="active">Find a Home</a>
+                <a href="services.html">Services</a>
+            </nav>
+
+            <div class="properties-account">
+                <a href="login.html" class="login-link">Login</a>
+                <a href="register.html" class="properties-cta">Get Started</a>
+            </div>
+
+            <button class="properties-mobile-toggle"
+                    id="properties-mobile-toggle"
+                    aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+        </div>
+    </header>
+
+
+    <!-- HERO -->
+    <section class="properties-hero">
+        <div class="properties-hero-content">
+
+            <span class="eyebrow">LIVIO RESIDENCES</span>
+
+            <h1>Find a place<br>to call home.</h1>
+
+            <p>
+                Discover verified rental properties and available homes
+                with greater confidence.
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- PROPERTY MARKETPLACE -->
+    <main class="properties-marketplace">
+
+        <section class="properties-search-section">
+
+            <div class="marketplace-heading">
+                <div>
+                    <span class="section-eyebrow">EXPLORE HOMES</span>
+                    <h2>Find your next home</h2>
+                    <p>Search available and verified rental properties.</p>
+                </div>
+
+                <span id="property-count" class="property-count">
+                    Loading properties...
+                </span>
+            </div>
+
+
+            <!-- SEARCH FILTERS -->
+            <form id="property-filter-form" class="property-search-form">
+
+                <div class="filter-field">
+                    <label for="location-filter">Location</label>
+                    <input
+                        type="text"
+                        id="location-filter"
+                        placeholder="County, town or area">
+                </div>
+
+                <div class="filter-field">
+                    <label for="type-filter">Property type</label>
+                    <select id="type-filter">
+                        <option value="">All property types</option>
+                        <option value="Apartment">Apartment</option>
+                        <option value="House">House</option>
+                        <option value="Maisonette">Maisonette</option>
+                        <option value="Bedsitter">Bedsitter</option>
+                        <option value="Studio">Studio</option>
+                        <option value="Commercial">Commercial</option>
+                    </select>
+                </div>
+
+                <div class="filter-field">
+                    <label for="min-price">Minimum rent (KSh)</label>
+                    <input
+                        type="number"
+                        id="min-price"
+                        min="0"
+                        placeholder="Minimum">
+                </div>
+
+                <div class="filter-field">
+                    <label for="max-price">Maximum rent (KSh)</label>
+                    <input
+                        type="number"
+                        id="max-price"
+                        min="0"
+                        placeholder="Maximum">
+                </div>
+
+                <div class="filter-field">
+                    <label for="bedrooms-filter">Bedrooms</label>
+                    <select id="bedrooms-filter">
+                        <option value="">Any</option>
+                        <option value="0">Bedsitter / Studio</option>
+                        <option value="1">1 bedroom</option>
+                        <option value="2">2 bedrooms</option>
+                        <option value="3">3 bedrooms</option>
+                        <option value="4">4+ bedrooms</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="property-search-button">
+                    <i class="fas fa-search"></i>
+                    Search homes
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- RESULTS TOOLBAR -->
+        <section class="property-results-section">
+
+            <div class="property-results-toolbar">
+
+                <div>
+                    <h2>Available properties</h2>
+                    <p>Explore homes that have passed LIVIO verification.</p>
+                </div>
+
+                <div class="sort-control">
+                    <label for="sort-properties">Sort by</label>
+
+                    <select id="sort-properties">
+                        <option value="newest">Newest first</option>
+                        <option value="price-low">Price: Low to high</option>
+                        <option value="price-high">Price: High to low</option>
+                    </select>
+                </div>
+
+            </div>
+
+
+            <!-- LOADING -->
+            <div id="properties-loading" class="properties-message">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Finding available homes...</p>
+            </div>
+
+
+            <!-- ERROR -->
+            <div id="properties-error"
+                 class="properties-message properties-error"
+                 hidden>
+                <i class="fas fa-circle-exclamation"></i>
+                <p>We couldn't load properties. Please try again.</p>
+                <button type="button" id="retry-properties">
+                    Try again
+                </button>
+            </div>
+
+
+            <!-- PROPERTY CARDS -->
+            <div id="property-results" class="public-property-grid">
+            </div>
+
+
+            <!-- EMPTY RESULTS -->
+            <div id="no-properties"
+                 class="properties-message"
+                 hidden>
+
+                <i class="fas fa-house-circle-exclamation"></i>
+
+                <h3>No properties found</h3>
+
+                <p>
+                    We couldn't find homes matching your search.
+                    Try changing your filters.
+                </p>
+
+                <button type="button" id="clear-property-filters">
+                    Clear filters
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="properties-footer">
+
+        <div>
+            <a href="index.html" class="properties-logo">
+                LIVIO<span>.</span>
+            </a>
+
+            <p>Find a home with greater confidence.</p>
+        </div>
+
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="properties.html">Find a Home</a>
+            <a href="services.html">Services</a>
+            <a href="login.html">Login</a>
+        </div>
+
+        <p class="footer-copyright">
+            &copy; 2026 LIVIO Residences. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <script type="module" src="js/properties.js"></script>
+
+</body>
+</html>

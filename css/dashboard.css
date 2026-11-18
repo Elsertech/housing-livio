@@ -437,679 +437,318 @@
 }
 
 /* =========================================
-   LIVIO LANDLORD - QUICK ACTIONS
+   /* =========================================
+   LIVIO SHARED UX & RESPONSIVE ENHANCEMENTS
 ========================================= */
 
-.quick-actions {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 18px;
-    margin-top: 22px;
+/* Clickable KPI Stat Cards */
+.stat-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
-.quick-action-card {
+.stat-card-link:hover .stat-card,
+.stat-card-link:hover .admin-stat-card {
+    transform: translateY(-4px);
+    border-color: #F28C28;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    transition: all 0.25s ease;
+}
+
+/* Status & Trust Badges */
+.trust-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    padding: 7px 14px;
+    background: rgba(242, 140, 40, 0.12);
+    color: #c96c10;
+    border: 1px solid rgba(242, 140, 40, 0.25);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.status-verified {
+    background: #eafaf1;
+    color: #239b56;
+}
+
+.status-pending {
+    background: rgba(242, 140, 40, 0.14);
+    color: #c96c10;
+}
+
+/* Landlord Verification Card */
+.verification-card {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 11px;
-    min-height: 165px;
-    padding: 23px 20px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    padding: 24px;
     background: #ffffff;
     border: 1px solid #eeeeee;
     border-radius: 14px;
-    text-decoration: none;
-    color: #171717;
-    transition: all 0.25s ease;
 }
 
-.quick-action-card > i {
+.verification-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 650px;
+}
+
+.verification-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 43px;
-    height: 43px;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
     background: rgba(242, 140, 40, 0.12);
     color: #F28C28;
-    border-radius: 12px;
-    font-size: 19px;
-    transition: all 0.25s ease;
+    font-size: 21px;
+    flex-shrink: 0;
 }
 
-.quick-action-card strong {
-    font-size: 15px;
-    font-weight: 700;
+.verification-info h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
     color: #171717;
 }
 
-.quick-action-card span {
+.verification-info p {
     font-size: 13px;
     line-height: 1.6;
-    color: #777777;
+    color: #686868;
 }
 
-.quick-action-card:hover {
-    transform: translateY(-5px);
+/* Tenant Quick Location Chips & Filter Actions */
+.quick-locations {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: #686868;
+}
+
+.location-chip {
+    padding: 5px 14px;
+    background: #fafafa;
+    border: 1px solid #dddddd;
+    border-radius: 999px;
+    color: #292929;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.location-chip:hover {
+    background: #F28C28;
+    border-color: #F28C28;
+    color: #ffffff;
+}
+
+.filter-actions {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.reset-button {
+    padding: 13px 16px;
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 9px;
+    color: #333333;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.reset-button:hover {
+    background: #f5f5f5;
+}
+
+/* Property Cards Rendered in Tenant Dashboard */
+.property-card {
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.property-card:hover {
+    transform: translateY(-4px);
     border-color: #F28C28;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
 }
 
-.quick-action-card:hover > i {
-    background: #F28C28;
-    color: #ffffff;
+.property-card-media {
+    position: relative;
 }
 
-
-/* TABLET */
-@media (max-width: 1000px) {
-    .quick-actions {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-
-/* MOBILE */
-@media (max-width: 600px) {
-    .quick-actions {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
-
-    .quick-action-card {
-        min-height: auto;
-        padding: 18px;
-    }
-}
-
-/* =========================================
-   LIVIO ADD PROPERTY PAGE
-========================================= */
-
-.property-step-indicator {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 25px;
-    background: #ffffff;
-    border: 1px solid #eeeeee;
-    border-radius: 14px;
-}
-
-.property-step {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #888888;
-}
-
-.property-step span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    background: #eeeeee;
-    font-weight: 700;
-}
-
-.property-step.active {
-    color: #171717;
-}
-
-.property-step.active span {
-    background: #F28C28;
-    color: #ffffff;
-}
-
-.property-step small {
-    font-size: 12px;
-    font-weight: 600;
-}
-
-.property-form-section {
-    padding: 28px;
-    background: #ffffff;
-    border: 1px solid #eeeeee;
-    border-radius: 15px;
-}
-
-.property-form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 9px;
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    color: #292929;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
+.property-card-media img {
     width: 100%;
-    padding: 13px 14px;
-    border: 1px solid #dddddd;
-    border-radius: 9px;
-    outline: none;
-    background: #ffffff;
-    color: #171717;
-    font-family: inherit;
-    font-size: 14px;
-    transition: border 0.2s, box-shadow 0.2s;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    border-color: #F28C28;
-    box-shadow: 0 0 0 3px rgba(242, 140, 40, 0.12);
-}
-
-.form-group textarea {
-    resize: vertical;
-}
-
-.full-width {
-    grid-column: 1 / -1;
-}
-
-.property-info-notice {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    padding: 18px;
-    margin: 20px 0;
-    background: #fff8f0;
-    border: 1px solid #f5dfc8;
-    border-radius: 11px;
-}
-
-.property-info-notice > i {
-    color: #F28C28;
-    font-size: 21px;
-    margin-top: 3px;
-}
-
-.property-info-notice strong {
+    height: 200px;
+    object-fit: cover;
     display: block;
-    margin-bottom: 6px;
-    font-size: 14px;
 }
 
-.property-info-notice p {
-    color: #686868;
-    font-size: 13px;
-    line-height: 1.7;
-}
-
-.property-checkbox-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 15px;
-    padding: 15px;
-    background: #fafafa;
-    border: 1px solid #eeeeee;
-    border-radius: 10px;
-}
-
-.property-checkbox-grid label {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-}
-
-.property-checkbox-grid input,
-.property-agreement input {
-    accent-color: #F28C28;
-    width: 16px;
-    height: 16px;
-}
-
-.unit-registration-placeholder,
-.property-upload-notice {
-    padding: 35px 20px;
-    text-align: center;
-    background: #fafafa;
-    border: 1px dashed #d5d5d5;
-    border-radius: 12px;
-}
-
-.unit-registration-placeholder > i,
-.property-upload-notice > i {
-    font-size: 35px;
-    color: #F28C28;
-    margin-bottom: 15px;
-}
-
-.unit-registration-placeholder h3,
-.property-upload-notice h3 {
-    margin-bottom: 10px;
-    font-size: 17px;
-}
-
-.unit-registration-placeholder p,
-.property-upload-notice p {
-    max-width: 540px;
-    margin: auto;
-    color: #777777;
-    font-size: 13px;
-    line-height: 1.8;
-}
-
-.property-upload-notice span {
-    display: inline-block;
-    margin-top: 16px;
-    color: #a36a25;
-    font-size: 12px;
-}
-
-.property-agreement {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    margin: 25px 0;
-    color: #555555;
-    font-size: 13px;
-    line-height: 1.7;
-    cursor: pointer;
-}
-
-.property-form-actions {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 12px;
-    margin-top: 25px;
-}
-
-.secondary-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 13px 22px;
-    background: #ffffff;
-    border: 1px solid #dddddd;
-    border-radius: 8px;
-    color: #333333;
-    text-decoration: none;
-    font-size: 14px;
+.property-verified-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 5px 11px;
+    background: #171717;
+    color: #ffffff;
+    border-radius: 999px;
+    font-size: 11px;
     font-weight: 600;
 }
 
-.property-form-actions .primary-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    border: none;
-    cursor: pointer;
+.property-verified-tag i {
+    color: #F28C28;
 }
 
-.property-form-actions .primary-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+.property-card-body {
+    padding: 18px;
 }
 
-.form-security-note {
-    margin-top: 18px;
-    color: #888888;
-    text-align: right;
+.property-card-meta {
     font-size: 12px;
+    font-weight: 600;
+    color: #F28C28;
+    margin-bottom: 6px;
 }
 
-@media (max-width: 900px) {
-    .property-step-indicator {
-        flex-wrap: wrap;
-        justify-content: flex-start;
-    }
-
-    .property-checkbox-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 600px) {
-    .property-form-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .property-form-section {
-        padding: 18px;
-    }
-
-    .property-checkbox-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .property-step-indicator {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .property-step small {
-        font-size: 11px;
-    }
-
-    .property-form-actions {
-        flex-direction: column-reverse;
-        align-items: stretch;
-    }
-
-    .property-form-actions a,
-    .property-form-actions button {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
-
-/* =========================================
-   LIVIO ADMIN CONTROL CENTRE
-========================================= */
-
-.admin-sidebar {
-    background: #171717;
-}
-
-.admin-nav-label {
-    padding: 20px 15px 8px;
-    color: #999;
-    font-size: 10px;
+.property-card-title {
+    font-size: 16px;
     font-weight: 700;
-    letter-spacing: 1.2px;
-}
-
-.admin-sidebar .sidebar-nav a {
-    font-size: 13px;
-    transition: .2s ease;
-}
-
-.admin-sidebar .sidebar-nav a.active {
-    background: #F28C28;
-    color: #fff;
-}
-
-.admin-sidebar .sidebar-nav a:hover:not(.active) {
-    background: #292929;
-}
-
-.admin-dashboard {
-    background: #f5f6f8;
-}
-
-.admin-header-right {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-}
-
-.admin-system-status {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    color: #555;
-}
-
-.admin-system-status span {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #239b56;
-}
-
-.admin-welcome {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    padding: 30px;
-    margin: 25px 0;
-    background: #171717;
-    border-radius: 15px;
-    color: white;
-}
-
-.admin-welcome h2 {
-    margin: 10px 0;
-    font-size: 27px;
-}
-
-.admin-welcome p {
-    max-width: 650px;
-    color: #c7c7c7;
-    line-height: 1.7;
-    font-size: 13px;
-}
-
-.admin-welcome .welcome-label {
-    color: #F28C28;
-    font-weight: 700;
-    letter-spacing: 1px;
-}
-
-.admin-welcome-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 75px;
-    height: 75px;
-    border-radius: 18px;
-    background: #292929;
-    color: #F28C28;
-    font-size: 32px;
-}
-
-.admin-stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 18px;
-    margin-bottom: 30px;
-}
-
-.admin-stat-card {
-    padding: 22px;
-    background: #fff;
-    border: 1px solid #eee;
-    border-radius: 13px;
-}
-
-.admin-stat-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 43px;
-    height: 43px;
-    margin-bottom: 17px;
-    background: #fff2e5;
-    color: #F28C28;
-    border-radius: 11px;
-    font-size: 18px;
-}
-
-.admin-stat-card p {
-    color: #777;
-    font-size: 13px;
-}
-
-.admin-stat-card h2 {
-    margin: 9px 0;
-    font-size: 28px;
     color: #171717;
-}
-
-.admin-stat-card small {
-    color: #999;
-    font-size: 11px;
-}
-
-.admin-action-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.admin-action-card {
-    padding: 20px;
-    background: #fff;
-    border: 1px solid #eee;
-    border-radius: 12px;
-    text-decoration: none;
-    color: #171717;
-    transition: .2s ease;
-}
-
-.admin-action-card > div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.admin-action-card i {
-    color: #F28C28;
-    font-size: 20px;
-}
-
-.admin-action-card > div span {
-    font-size: 24px;
-    font-weight: 700;
-}
-
-.admin-action-card strong,
-.admin-action-card small {
-    display: block;
-}
-
-.admin-action-card strong {
-    font-size: 13px;
     margin-bottom: 8px;
 }
 
-.admin-action-card small {
-    color: #888;
-    font-size: 11px;
-    line-height: 1.5;
-}
-
-.admin-action-card:hover,
-.admin-management-card:hover {
-    transform: translateY(-4px);
-    border-color: #F28C28;
-    box-shadow: 0 8px 22px rgba(0,0,0,.05);
-}
-
-.admin-management-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 17px;
-    margin-top: 20px;
-}
-
-.admin-management-card {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 23px;
-    background: #fff;
-    border: 1px solid #eee;
-    border-radius: 13px;
+.property-card-price {
+    font-size: 17px;
+    font-weight: 700;
     color: #171717;
-    text-decoration: none;
-    transition: .2s ease;
+    margin-bottom: 14px;
 }
 
-.admin-management-card > i {
+.property-card-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Activity Feed Items */
+.activity-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px 20px;
+    margin-bottom: 10px;
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 12px;
+}
+
+.activity-item h4 {
+    font-size: 14px;
+    color: #171717;
+    margin-bottom: 4px;
+}
+
+.activity-item small {
+    font-size: 12px;
+    color: #777777;
+}
+
+/* Mobile Header & Slide-out Sidebar */
+.header-left {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    background: #fff2e5;
-    border-radius: 11px;
-    color: #F28C28;
-    font-size: 19px;
+    gap: 12px;
 }
 
-.admin-management-card strong {
-    font-size: 14px;
-}
-
-.admin-management-card span {
-    color: #888;
-    font-size: 12px;
-    line-height: 1.6;
-}
-
-.admin-security-notice {
+.sidebar-top {
     display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    padding: 22px;
-    margin: 25px 0;
-    background: #fff;
-    border: 1px solid #eee;
-    border-left: 4px solid #F28C28;
-    border-radius: 10px;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.admin-security-notice > i {
-    color: #F28C28;
-    font-size: 22px;
+.mobile-menu-btn,
+.mobile-sidebar-btn,
+.sidebar-close-btn {
+    display: none;
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: #171717;
+    font-size: 16px;
+    cursor: pointer;
 }
 
-.admin-security-notice strong {
-    font-size: 14px;
-}
-
-.admin-security-notice p {
-    margin-top: 8px;
-    color: #777;
-    font-size: 12px;
-    line-height: 1.7;
-}
-
-@media(max-width: 1100px) {
-    .admin-stats-grid,
-    .admin-action-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+@media (max-width: 900px) {
+    .mobile-menu-btn,
+    .mobile-sidebar-btn,
+    .sidebar-close-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
     }
 
-    .admin-management-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media(max-width: 650px) {
-    .admin-stats-grid,
-    .admin-action-grid,
-    .admin-management-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .admin-welcome {
-        padding: 22px;
-    }
-
-    .admin-welcome-icon {
+    .tenant-nav {
         display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        padding: 16px 24px;
+        border-bottom: 1px solid #eeeeee;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+        z-index: 150;
     }
 
-    .admin-header-right {
-        flex-wrap: wrap;
-        gap: 10px;
+    .tenant-nav.open {
+        display: flex;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -280px;
+        height: 100vh;
+        z-index: 200;
+        transition: left 0.25s ease;
+    }
+
+    .sidebar.open {
+        left: 0;
     }
 }

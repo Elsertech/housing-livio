@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIVIO | My Properties</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+    <style>
+        .properties-page {
+            padding: 35px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .page-heading {
+            margin-bottom: 30px;
+        }
+
+        .page-heading h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .page-heading p {
+            color: #777;
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .property-card {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 22px;
+            box-shadow: 0 3px 12px rgba(0,0,0,.04);
+        }
+
+        .property-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .property-location {
+            color: #777;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .property-status {
+            display: inline-block;
+            padding: 6px 11px;
+            border-radius: 20px;
+            background: #fff1df;
+            color: #a65b08;
+            font-size: 11px;
+            margin-bottom: 15px;
+        }
+
+        .property-details {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .property-empty {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            text-align: center;
+            color: #777;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: #F28C28;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media(max-width:600px) {
+            .properties-page {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="properties-page">
+
+        <a href="dashboard.html" class="back-link">
+            ← Back to Dashboard
+        </a>
+
+        <header class="page-heading">
+            <h1>My Properties</h1>
+            <p>View and manage properties you have submitted to LIVIO.</p>
+        </header>
+
+        <div id="properties-message">
+            Loading your properties...
+        </div>
+
+        <section id="property-grid" class="property-grid"></section>
+
+    </main>
+
+    <script type="module" src="../js/my-properties.js"></script>
+
+</body>
+</html>
